@@ -1,0 +1,29 @@
+.grid-container {
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  text-align: center;
+  width: 100%;
+}
+
+.grid-item {
+  position: relative;
+}
+
+.grid-item-image {
+  width: 100%;
+  height: 100%;
+}
+
+.grid-item-tag {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100px;
+  width: 100%;
+  color: black;
+}

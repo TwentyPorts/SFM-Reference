@@ -13,7 +13,6 @@ const CarouselWrapper = () => {
 
   async function getData() {
     setData(await import("./Data/" + category));
-    //console.log(data.carouselData);
 
     if (data)
       setListItems(

@@ -10,34 +10,37 @@ export const CarouselItem = ({ children, width }) => {
     </div>
   );
 };
-let listenerAttached = false;
 
 const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  if(!listenerAttached) {
+  useEffect(() => {
+    // Subscribe once
     window.addEventListener("keydown", keyPress);
-    listenerAttached = true;
-  }
+    // Unsubscribe on unmount
+    return () => {
+      window.removeEventListener("keydown", keyPress);
+    };
+  });
 
+  // Update index of image to display
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
       newIndex = React.Children.count(children) - 1;
     } else if (newIndex >= React.Children.count(children)) {
-      //console.log(React.Children.count(children));
       newIndex = 0;
     }
 
     setActiveIndex(newIndex);
   };
 
+  // Mobile swiping support
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
     onSwipedRight: () => updateIndex(activeIndex - 1),
   });
-  
+
+  // Handle keypress updates
   function keyPress(e) {
-    console.log(e.key);
-    //console.log(activeIndex);
     if (e.key === "Enter") {
       e.preventDefault();
       updateIndex(activeIndex + 1);
@@ -48,7 +51,6 @@ const Carousel = ({ children }) => {
     if (e.key === "ArrowLeft") {
       updateIndex(activeIndex - 1);
     }
-    //console.log(activeIndex);
   }
 
   return (

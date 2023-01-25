@@ -25,11 +25,12 @@ class GridView extends React.Component {
     };
   }
 
+  // Navigate to carousel view for whichever category was clicked
   handleClick(i) {
-    console.log("clicked grid item " + i);
     this.setState({navigateTo: i});
   }
 
+  // Render a single GridItem
   renderGridItem(i) {
     return (
       <GridItem

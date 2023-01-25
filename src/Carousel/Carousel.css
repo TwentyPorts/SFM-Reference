@@ -1,0 +1,47 @@
+.carousel {
+  overflow: hidden;
+}
+
+.inner {
+  white-space: nowrap;
+  transition: transform 0.3s;
+}
+
+.carousel-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.carousel-item-author {
+  color: black;
+  font-size: 3em;
+}
+
+.carousel-item-image-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.carousel-item-image {
+  max-width: 100%;
+  max-height: 90vh;
+  margin: auto;
+}
+
+.indicators {
+  display: flex;
+  justify-content: center;
+}
+
+.indicators > button {
+  margin: 5px;
+}
+
+.indicators > button.active {
+  background-color: green;
+  color: #fff;
+}

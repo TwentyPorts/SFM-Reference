@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
-import { useParams } from 'react-router-dom';
-import { gridData } from '../gridData';
 
 import "./Carousel.css";
 
@@ -12,27 +10,21 @@ export const CarouselItem = ({ children, width }) => {
     </div>
   );
 };
+let listenerAttached = false;
 
 const Carousel = ({ children }) => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [data, setData] = useState(0);
-  const { id } = useParams();
-  const category = gridData[id].tag;
-
-  async function getData() {
-    setData(await import ('./Data/' + category));
-    console.log(data.carouselData);
-  };
-
-  useEffect(() => {
-    getData();
-  });
+  if(!listenerAttached) {
+    window.addEventListener("keydown", keyPress);
+    listenerAttached = true;
+  }
 
   const updateIndex = (newIndex) => {
     if (newIndex < 0) {
-      newIndex = 0;
-    } else if (newIndex >= React.Children.count(children)) {
       newIndex = React.Children.count(children) - 1;
+    } else if (newIndex >= React.Children.count(children)) {
+      //console.log(React.Children.count(children));
+      newIndex = 0;
     }
 
     setActiveIndex(newIndex);
@@ -40,8 +32,24 @@ const Carousel = ({ children }) => {
 
   const handlers = useSwipeable({
     onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1)
+    onSwipedRight: () => updateIndex(activeIndex - 1),
   });
+  
+  function keyPress(e) {
+    console.log(e.key);
+    //console.log(activeIndex);
+    if (e.key === "Enter") {
+      e.preventDefault();
+      updateIndex(activeIndex + 1);
+    }
+    if (e.key === "ArrowRight") {
+      updateIndex(activeIndex + 1);
+    }
+    if (e.key === "ArrowLeft") {
+      updateIndex(activeIndex - 1);
+    }
+    //console.log(activeIndex);
+  }
 
   return (
     <div {...handlers} className="carousel">
@@ -49,17 +57,9 @@ const Carousel = ({ children }) => {
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
-        {data && data.carouselData.map((element, index) => (
-          <CarouselItem width='100%'>
-            <img alt="" src={element.image}></img>
-            <div>{element.author}</div>
-          </CarouselItem>
-        ))}
-        { /*
         {React.Children.map(children, (child, index) => {
           return React.cloneElement(child, { width: "100%" });
         })}
-        */ }
       </div>
       <div className="indicators">
         <button

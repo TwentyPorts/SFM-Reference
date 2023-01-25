@@ -51,7 +51,7 @@ class GridView extends React.Component {
           {this.renderGridItem(2)}
         </Grid>
 
-        {navigateTo && (
+        {navigateTo!=null && (
           <Navigate to={"/"+navigateTo} />
         )}
       </Box>

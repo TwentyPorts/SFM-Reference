@@ -19,8 +19,16 @@ const CarouselWrapper = () => {
         data.carouselData.map((element, index) => {
           return (
             <CarouselItem key={index}>
-              <img alt="" src={element.image}></img>
-              <div>{element.author}</div>
+              <div className="carousel-item-image-wrapper">
+                <img
+                  className="carousel-item-image"
+                  alt=""
+                  src={element.image}
+                ></img>
+              </div>
+              <div className="carousel-item-author">
+                Author: {element.author}
+              </div>
             </CarouselItem>
           );
         })

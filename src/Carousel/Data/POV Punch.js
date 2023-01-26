@@ -8,6 +8,7 @@ import Image6 from "../../Assets/Images/POV Punch/6.jpg";
 import Image7 from "../../Assets/Images/POV Punch/7.jpg";
 import Image8 from "../../Assets/Images/POV Punch/8.jpg";
 import Image9 from "../../Assets/Images/POV Punch/9.gif";
+import Image10 from "../../Assets/Images/POV Punch/10.jpg";
 
 export const carouselData = [
   {
@@ -53,5 +54,10 @@ export const carouselData = [
   {
     author: "DandyMint#3394",
     image: Image9
+  },
+  {
+    author: "Murtle",
+    image: Image10,
+    link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2078383287"
   },
 ];

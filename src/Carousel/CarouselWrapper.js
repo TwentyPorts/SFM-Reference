@@ -27,7 +27,7 @@ const CarouselWrapper = () => {
                 ></img>
               </div>
               <div className="carousel-item-author">
-                Author: {element.author}
+                Author: {element.author} {element.link ? <a href={element.link}>(link)</a> : null}
               </div>
             </CarouselItem>
           );

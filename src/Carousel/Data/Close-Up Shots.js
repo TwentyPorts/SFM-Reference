@@ -1,9 +1,9 @@
-import Image0 from "../../Assets/Images/Close-Up Shots/0.png";
-import Image1 from "../../Assets/Images/Close-Up Shots/1.png";
-import Image2 from "../../Assets/Images/Close-Up Shots/2.png";
-import Image3 from "../../Assets/Images/Close-Up Shots/3.png";
-import Image4 from "../../Assets/Images/Close-Up Shots/4.png";
-import Image5 from "../../Assets/Images/Close-Up Shots/5.png";
+import Image0 from "../../Assets/Images/Close-Up Shots/0.jpg";
+import Image1 from "../../Assets/Images/Close-Up Shots/1.jpg";
+import Image2 from "../../Assets/Images/Close-Up Shots/2.jpg";
+import Image3 from "../../Assets/Images/Close-Up Shots/3.jpg";
+import Image4 from "../../Assets/Images/Close-Up Shots/4.jpg";
+import Image5 from "../../Assets/Images/Close-Up Shots/5.jpg";
 
 export const carouselData = [
   {

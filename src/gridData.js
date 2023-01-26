@@ -1,13 +1,13 @@
 import Thumb_Valve_Portraits from './Assets/Images/Valve-Style Portraits/0.png';
-import Thumb_POV_Punch from './Assets/Images/POV Punch/0.png';
-import Thumb_Extreme_Long_Shots from './Assets/Images/Extreme Long Shots/0.png';
-import Thumb_Full_Shots from './Assets/Images/Full Shots/0.png';
-import Thumb_Medium_Shots from './Assets/Images/Medium Shots/0.png';
-import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium Close-Up Shots/0.png';
-import Thumb_Close_Up_Shots from './Assets/Images/Close-Up Shots/0.png';
-import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie and Game Posters/0.png';
+import Thumb_POV_Punch from './Assets/Images/POV Punch/0.jpg';
+import Thumb_Extreme_Long_Shots from './Assets/Images/Extreme Long Shots/0.jpg';
+import Thumb_Full_Shots from './Assets/Images/Full Shots/0.jpg';
+import Thumb_Medium_Shots from './Assets/Images/Medium Shots/0.jpg';
+import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium Close-Up Shots/0.jpg';
+import Thumb_Close_Up_Shots from './Assets/Images/Close-Up Shots/0.jpg';
+import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie and Game Posters/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
-import Thumb_Deformed_Mercs from './Assets/Images/Deformed Mercs/0.png';
+import Thumb_Deformed_Mercs from './Assets/Images/Deformed Mercs/0.jpg';
 
 export const gridData=[
     {

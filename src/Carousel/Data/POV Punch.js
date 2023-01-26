@@ -1,12 +1,12 @@
-import Image0 from "../../Assets/Images/POV Punch/0.png";
-import Image1 from "../../Assets/Images/POV Punch/1.png";
-import Image2 from "../../Assets/Images/POV Punch/2.png";
-import Image3 from "../../Assets/Images/POV Punch/3.png";
-import Image4 from "../../Assets/Images/POV Punch/4.png";
-import Image5 from "../../Assets/Images/POV Punch/5.png";
-import Image6 from "../../Assets/Images/POV Punch/6.png";
-import Image7 from "../../Assets/Images/POV Punch/7.png";
-import Image8 from "../../Assets/Images/POV Punch/8.png";
+import Image0 from "../../Assets/Images/POV Punch/0.jpg";
+import Image1 from "../../Assets/Images/POV Punch/1.jpg";
+import Image2 from "../../Assets/Images/POV Punch/2.jpg";
+import Image3 from "../../Assets/Images/POV Punch/3.jpg";
+import Image4 from "../../Assets/Images/POV Punch/4.jpg";
+import Image5 from "../../Assets/Images/POV Punch/5.jpg";
+import Image6 from "../../Assets/Images/POV Punch/6.jpg";
+import Image7 from "../../Assets/Images/POV Punch/7.jpg";
+import Image8 from "../../Assets/Images/POV Punch/8.jpg";
 import Image9 from "../../Assets/Images/POV Punch/9.gif";
 
 export const carouselData = [

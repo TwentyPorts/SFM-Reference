@@ -1,20 +1,20 @@
-import Image0 from "../../Assets/Images/Medium Shots/0.png";
+import Image0 from "../../Assets/Images/Medium Shots/0.jpg";
 import Image1 from "../../Assets/Images/Medium Shots/1.jpg";
 import Image2 from "../../Assets/Images/Medium Shots/2.png";
 import Image3 from "../../Assets/Images/Medium Shots/3.jpg";
-import Image4 from "../../Assets/Images/Medium Shots/4.png";
+import Image4 from "../../Assets/Images/Medium Shots/4.jpg";
 import Image5 from "../../Assets/Images/Medium Shots/5.png";
-import Image6 from "../../Assets/Images/Medium Shots/6.png";
-import Image7 from "../../Assets/Images/Medium Shots/7.png";
+import Image6 from "../../Assets/Images/Medium Shots/6.jpg";
+import Image7 from "../../Assets/Images/Medium Shots/7.jpg";
 import Image8 from "../../Assets/Images/Medium Shots/8.png";
-import Image9 from "../../Assets/Images/Medium Shots/9.png";
-import Image10 from "../../Assets/Images/Medium Shots/10.png";
-import Image11 from "../../Assets/Images/Medium Shots/11.png";
-import Image12 from "../../Assets/Images/Medium Shots/12.png";
-import Image13 from "../../Assets/Images/Medium Shots/13.png";
-import Image14 from "../../Assets/Images/Medium Shots/14.png";
-import Image15 from "../../Assets/Images/Medium Shots/15.png";
-import Image16 from "../../Assets/Images/Medium Shots/16.png";
+import Image9 from "../../Assets/Images/Medium Shots/9.jpg";
+import Image10 from "../../Assets/Images/Medium Shots/10.jpg";
+import Image11 from "../../Assets/Images/Medium Shots/11.jpg";
+import Image12 from "../../Assets/Images/Medium Shots/12.jpg";
+import Image13 from "../../Assets/Images/Medium Shots/13.jpg";
+import Image14 from "../../Assets/Images/Medium Shots/14.jpg";
+import Image15 from "../../Assets/Images/Medium Shots/15.jpg";
+import Image16 from "../../Assets/Images/Medium Shots/16.jpg";
 
 export const carouselData = [
   {

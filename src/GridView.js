@@ -49,6 +49,13 @@ class GridView extends React.Component {
           {this.renderGridItem(0)}
           {this.renderGridItem(1)}
           {this.renderGridItem(2)}
+          {this.renderGridItem(3)}
+          {this.renderGridItem(4)}
+          {this.renderGridItem(5)}
+          {this.renderGridItem(6)}
+          {this.renderGridItem(7)}
+          {this.renderGridItem(8)}
+          {this.renderGridItem(9)}
         </Grid>
 
         {navigateTo!=null && (

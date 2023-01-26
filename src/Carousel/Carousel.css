@@ -23,7 +23,7 @@
 .carousel-item-image-wrapper {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: start;
 }
 
 .carousel-item-image {

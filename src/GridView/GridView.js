@@ -45,7 +45,7 @@ class GridView extends React.Component {
   render() {
     let { navigateTo } = this.state;
     return (
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, marginTop: '20px' }}>
         <Grid container spacing={2}>
           {this.renderGridItem(0)}
           {this.renderGridItem(1)}

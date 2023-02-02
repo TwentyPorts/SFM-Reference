@@ -7,7 +7,7 @@ import { Navigate } from 'react-router-dom';
 
 function GridItem(props) {
   return (
-    <Grid className="grid-container" item xs={3}>
+    <Grid className="grid-container" item xs='auto'>
       <div className="grid-item" onClick={props.onClick}>
         <img alt="thumb" className="grid-item-image" title={props.desc} src={props.image}></img>
         <div className="grid-item-tag">{props.tag}</div>
@@ -45,8 +45,8 @@ class GridView extends React.Component {
   render() {
     let { navigateTo } = this.state;
     return (
-      <Box sx={{ flexGrow: 1, marginTop: '20px' }}>
-        <Grid container spacing={2}>
+      <Box sx={{ flexGrow: 1, marginTop: '10px' }}>
+        <Grid container spacing={2} sx={{ p: 1 }}>
           {this.renderGridItem(0)}
           {this.renderGridItem(1)}
           {this.renderGridItem(2)}

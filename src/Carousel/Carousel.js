@@ -25,7 +25,7 @@ const Carousel = ({ children }) => {
 
   // Update index of image to display
   const updateIndex = (e, p) => {
-    p = p-1;
+    p = p - 1;
     if (p < 0) {
       p = React.Children.count(children) - 1;
     } else if (p >= React.Children.count(children)) {
@@ -66,7 +66,14 @@ const Carousel = ({ children }) => {
         })}
       </div>
       <div className="indicators">
-        <Pagination count={React.Children.count(children)} showFirstButton showLastButton onChange={updateIndex}/>
+        <Pagination
+          count={React.Children.count(children)}
+          showFirstButton
+          showLastButton
+          page={activeIndex+1}
+          onChange={updateIndex}
+          variant="outlined"
+        />
       </div>
     </div>
   );

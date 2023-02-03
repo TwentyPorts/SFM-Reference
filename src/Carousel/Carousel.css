@@ -1,5 +1,6 @@
 .carousel {
   overflow: hidden;
+  font-family: sans-serif;
 }
 
 .inner {
@@ -11,13 +12,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
   flex-wrap: wrap;
 }
 
 .carousel-item-author {
-  color: black;
+  color: #a89368;
   font-size: 3em;
+  margin: 7px 0;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .carousel-item-image-wrapper {
@@ -45,4 +48,20 @@
 .indicators > button.active {
   background-color: green;
   color: #fff;
+}
+
+ul .MuiPaginationItem-root {
+  background-color: #b9b5af;
+}
+
+ul .MuiPaginationItem-root:hover {
+  background-color: #fdf8ed;
+}
+
+ul .MuiPaginationItem-root.Mui-selected {
+  background-color: #fdf8ed;
+}
+
+ul .MuiPaginationItem-root.Mui-selected:hover {
+  background-color: #fdf8ed;
 }

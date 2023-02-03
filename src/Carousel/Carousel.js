@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
+import Pagination from "@mui/material/Pagination";
 
 import "./Carousel.css";
 
@@ -23,33 +24,34 @@ const Carousel = ({ children }) => {
   });
 
   // Update index of image to display
-  const updateIndex = (newIndex) => {
-    if (newIndex < 0) {
-      newIndex = React.Children.count(children) - 1;
-    } else if (newIndex >= React.Children.count(children)) {
-      newIndex = 0;
+  const updateIndex = (e, p) => {
+    p = p-1;
+    if (p < 0) {
+      p = React.Children.count(children) - 1;
+    } else if (p >= React.Children.count(children)) {
+      p = 0;
     }
 
-    setActiveIndex(newIndex);
+    setActiveIndex(p);
   };
 
   // Mobile swiping support
   const handlers = useSwipeable({
-    onSwipedLeft: () => updateIndex(activeIndex + 1),
-    onSwipedRight: () => updateIndex(activeIndex - 1),
+    onSwipedLeft: () => updateIndex(null, activeIndex + 2),
+    onSwipedRight: () => updateIndex(null, activeIndex),
   });
 
   // Handle keypress updates
   function keyPress(e) {
     if (e.key === "Enter") {
       e.preventDefault();
-      updateIndex(activeIndex + 1);
+      updateIndex(null, activeIndex + 2);
     }
     if (e.key === "ArrowRight") {
-      updateIndex(activeIndex + 1);
+      updateIndex(null, activeIndex + 2);
     }
     if (e.key === "ArrowLeft") {
-      updateIndex(activeIndex - 1);
+      updateIndex(null, activeIndex);
     }
   }
 
@@ -64,32 +66,7 @@ const Carousel = ({ children }) => {
         })}
       </div>
       <div className="indicators">
-        <button
-          onClick={() => {
-            updateIndex(activeIndex - 1);
-          }}
-        >
-          Prev
-        </button>
-        {React.Children.map(children, (child, index) => {
-          return (
-            <button
-              className={`${index === activeIndex ? "active" : ""}`}
-              onClick={() => {
-                updateIndex(index);
-              }}
-            >
-              {index + 1}
-            </button>
-          );
-        })}
-        <button
-          onClick={() => {
-            updateIndex(activeIndex + 1);
-          }}
-        >
-          Next
-        </button>
+        <Pagination count={React.Children.count(children)} showFirstButton showLastButton onChange={updateIndex}/>
       </div>
     </div>
   );

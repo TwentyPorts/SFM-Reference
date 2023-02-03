@@ -9,6 +9,7 @@
 
 .grid-item {
   position: relative;
+  cursor: pointer;
 }
 
 .grid-item-image {

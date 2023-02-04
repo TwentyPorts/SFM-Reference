@@ -10,11 +10,13 @@ const CarouselWrapper = () => {
   const [listItems, setListItems] = useState();
   const { id } = useParams();
   const category = gridData[id].tag;
+  let dataFetched = false;
 
   async function getData() {
     setData(await import("./Data/" + category));
-
-    if (data)
+    
+    if (data) {
+      dataFetched = true; // carousel data only needs to be fetched once
       setListItems(
         data.carouselData.map((element, index) => {
           return (
@@ -27,17 +29,20 @@ const CarouselWrapper = () => {
                 ></img>
               </div>
               <div className="carousel-item-author">
-                Author: {element.author} {element.link ? <a href={element.link}>(link)</a> : null}
+                Author: {element.author}{" "}
+                {element.link ? <a href={element.link}>(link)</a> : null}
               </div>
             </CarouselItem>
           );
         })
       );
+    }
   }
 
   useEffect(() => {
-    getData();
-  });
+    // console.log("CarouselWrapper effect used");
+    if (!dataFetched) getData();
+  }, [data]);
   return <Carousel>{listItems}</Carousel>;
 };
 

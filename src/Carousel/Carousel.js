@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Pagination from "@mui/material/Pagination";
+import { useSearchParams } from "react-router-dom";
 
 import "./Carousel.css";
 
@@ -13,26 +14,34 @@ export const CarouselItem = ({ children, width }) => {
 };
 
 const Carousel = ({ children }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  // console.log("carousel rendered");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const pageParam = searchParams.has("page") ? parseInt(searchParams.get("page")) : 0; // default to 0 if no search parameter present
+  const [activeIndex, setActiveIndex] = useState(pageParam);
+  const childrenCount = React.Children.count(children);
   useEffect(() => {
+    // console.log("effect used"); 
+
     // Subscribe once
-    window.addEventListener("keydown", keyPress);
+    document.addEventListener("keydown", keyPress);
     // Unsubscribe on unmount
     return () => {
-      window.removeEventListener("keydown", keyPress);
+      document.removeEventListener("keydown", keyPress);
     };
-  });
+  }, [activeIndex, childrenCount]);
 
   // Update index of image to display
   const updateIndex = (e, p) => {
     p = p - 1;
-    if (p < 0) {
+    if (p < 0) { // wraparound to last element
       p = React.Children.count(children) - 1;
-    } else if (p >= React.Children.count(children)) {
+    } else if (p >= React.Children.count(children)) { // wraparound to first element
       p = 0;
     }
 
     setActiveIndex(p);
+
+    setSearchParams({page: p+1});
   };
 
   // Mobile swiping support
@@ -70,7 +79,7 @@ const Carousel = ({ children }) => {
           count={React.Children.count(children)}
           showFirstButton
           showLastButton
-          page={activeIndex+1}
+          page={activeIndex + 1}
           onChange={updateIndex}
           variant="outlined"
         />

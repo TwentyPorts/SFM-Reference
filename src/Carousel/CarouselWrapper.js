@@ -10,6 +10,7 @@ const CarouselWrapper = () => {
   const [listItems, setListItems] = useState();
   const { id } = useParams();
   const category = gridData[id].tag;
+  document.title = category + " - SFM Reference";
   let dataFetched = false;
 
   async function getData() {

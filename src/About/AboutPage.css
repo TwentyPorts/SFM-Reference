@@ -1,4 +1,23 @@
 .about-page {
-    padding: 10px;
+    padding: 10px 10%;
+    font-size: 2vh;
     text-align: center;
+    color: #fdf8ed;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.about-page-header {
+    font-size: 4vh;
+    font-weight: bold;
+    font-family: sans-serif;
+    color: #b9b5af;
+}
+
+.about-page-container {
+    position: relative;
+    padding: 20px 8px;
+    background-color: #202020;
+    border-radius: 12px;
 }

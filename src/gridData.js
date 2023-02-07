@@ -53,7 +53,7 @@ export const gridData=[
       "desc": "Parodies of movie, game, and other media's poster art."
     },
     {
-      "tag": "JoJo You're Approaching Me",
+      "tag": "JoJo Approach",
       "image": Thumb_JoJo_Approach,
       "desc": "Composition mimicking the 'Oh? You're Approaching Me?' scene from JoJo's Bizarre Adventure."
     },

@@ -26,7 +26,7 @@ const CarouselWrapper = () => {
                 <img
                   className="carousel-item-image"
                   alt=""
-                  src={element.image}
+                  src={require("../Assets/Images/" + category + "/" + index + ".jpg")}
                 ></img>
               </div>
               <div className="carousel-item-author">
@@ -43,7 +43,7 @@ const CarouselWrapper = () => {
   useEffect(() => {
     // console.log("CarouselWrapper effect used");
     if (!dataFetched) getData();
-  }, [data]);
+  }, [data]); // don't add the so-called "missing dependencies" according to the compiler - the app will refresh infinitely and freeze
   return <Carousel>{listItems}</Carousel>;
 };
 

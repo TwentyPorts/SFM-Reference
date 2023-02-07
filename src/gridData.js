@@ -1,4 +1,4 @@
-import Thumb_Valve_Portraits from './Assets/Images/Valve-Style Portraits/0.png';
+import Thumb_Valve_Portraits from './Assets/Images/Valve-Style Portraits/0.jpg';
 import Thumb_POV_Punch from './Assets/Images/POV Punch/0.jpg';
 import Thumb_Extreme_Long_Shots from './Assets/Images/Extreme Long Shots/0.jpg';
 import Thumb_Full_Shots from './Assets/Images/Full Shots/0.jpg';
@@ -7,6 +7,7 @@ import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium Close-Up Shots/0
 import Thumb_Close_Up_Shots from './Assets/Images/Close-Up Shots/0.jpg';
 import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie and Game Posters/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
+import Thumb_Planes from './Assets/Images/Planes/0.jpg';
 import Thumb_Deformed_Mercs from './Assets/Images/Deformed Mercs/0.jpg';
 
 export const gridData=[
@@ -53,7 +54,12 @@ export const gridData=[
     {
       "tag": "Cars",
       "image": Thumb_Cars,
-      "desc": "Shots of single cars."
+      "desc": "Shots prominently featuring cars."
+    },
+    {
+      "tag": "Planes",
+      "image": Thumb_Planes,
+      "desc": "Shots prominently featuring planes or other aircraft."
     },
     {
       "tag": "Deformed Mercs",

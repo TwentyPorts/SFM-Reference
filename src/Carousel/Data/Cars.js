@@ -1,38 +1,38 @@
-import Image0 from "../../Assets/Images/Cars/0.jpg";
-import Image1 from "../../Assets/Images/Cars/1.png";
-import Image2 from "../../Assets/Images/Cars/2.png";
-import Image3 from "../../Assets/Images/Cars/3.jpg";
-import Image4 from "../../Assets/Images/Cars/4.jpg";
-import Image5 from "../../Assets/Images/Cars/5.jpg";
-import Image6 from "../../Assets/Images/Cars/6.jpg";
-
 export const carouselData = [
   {
-    author: "anonymousgamer#1000",
-    image: Image0
+    author: "anonymousgamer#1000"
   },
   {
-    author: "lamoz571#1253",
-    image: Image1
+    author: "lamoz571#1253"
   },
   {
-    author: "SK_Form#7182",
-    image: Image2
+    author: "SK_Form#7182"
   },
   {
-    author: "vers#6747",
-    image: Image3
+    author: "vers#6747"
   },
   {
-    author: "Harry101UK#5598",
-    image: Image4
+    author: "Harry101UK#5598"
   },
   {
-    author: "Harry101UK#5598",
-    image: Image5
+    author: "Harry101UK#5598"
   },
   {
-    author: "Harry101UK#5598",
-    image: Image6
+    author: "Harry101UK#5598"
+  },
+  {
+    author: "Hi | Dahtar#2003"
+  },
+  {
+    author: "anonymousgamer#1000"
+  },
+  {
+    author: "Faible#9371"
+  },
+  {
+    author: "vers#6747"
+  },
+  {
+    author: "matkovic#6348"
   },
 ];

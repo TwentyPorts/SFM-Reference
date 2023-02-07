@@ -11,7 +11,7 @@ const App = () => {
       <DefaultNavbar></DefaultNavbar>
       <Routes>
         <Route path="/" element={<GridView />} />
-        <Route path="/:id" element={<CarouselWrapper />} />
+        <Route path="/Category/:category" element={<CarouselWrapper />} />
         <Route path="/About" element={<AboutPage />} />
       </Routes>
     </>

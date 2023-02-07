@@ -36,13 +36,13 @@ class GridView extends React.Component {
   }
 
   // Render a single GridItem
-  renderGridItem(i) {
+  renderGridItem(category) {
     return (
       <GridItem
-        tag={this.state.gridData[i].tag}
-        image={this.state.gridData[i].image}
-        desc={this.state.gridData[i].desc}
-        onClick={() => this.handleClick(i)}
+        tag={this.state.gridData[category].tag}
+        image={this.state.gridData[category].image}
+        desc={this.state.gridData[category].desc}
+        onClick={() => this.handleClick(category)}
       />
     );
   }
@@ -50,10 +50,9 @@ class GridView extends React.Component {
   render() {
     let { navigateTo } = this.state;
 
-    let numItems = gridData.length;
     let gridItemsArray = []; // grid items to be rendered
-    for (let i = 0; i < numItems; i++) {
-      gridItemsArray.push(this.renderGridItem(i));
+    for (const [key] of Object.entries(gridData)) {
+      gridItemsArray.push(this.renderGridItem(key));
     }
 
     return (
@@ -64,7 +63,7 @@ class GridView extends React.Component {
           ))}
         </Grid>
 
-        {navigateTo != null && <Navigate to={"/" + navigateTo} />}
+        {navigateTo != null && <Navigate to={"/Category/" + navigateTo} />}
       </Box>
     );
   }

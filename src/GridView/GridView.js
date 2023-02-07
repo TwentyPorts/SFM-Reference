@@ -50,7 +50,6 @@ class GridView extends React.Component {
   render() {
     let { navigateTo } = this.state;
 
-    //let numItems = Object.keys(gridData.length);
     let gridItemsArray = []; // grid items to be rendered
     for (const [key] of Object.entries(gridData)) {
       gridItemsArray.push(this.renderGridItem(key));

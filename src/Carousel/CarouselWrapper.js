@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { gridData } from "../gridData";
 import Carousel, { CarouselItem } from "./Carousel";
 
 import "./Carousel.css";
@@ -8,8 +7,7 @@ import "./Carousel.css";
 const CarouselWrapper = () => {
   const [data, setData] = useState();
   const [listItems, setListItems] = useState();
-  const { id } = useParams();
-  const category = gridData[id].tag;
+  const { category } = useParams();
   document.title = category + " - SFM Reference";
   let dataFetched = false;
 

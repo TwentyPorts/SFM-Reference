@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksfm_reference=self.webpackChunksfm_reference||[]).push([[834],{8834:function(e,n,r){r.r(n),r.d(n,{carouselData:function(){return t}});var t=[{author:"M-Kon#8161"},{author:""},{author:"Flynn",link:"https://steamcommunity.com/sharedfiles/filedetails/?id=2881260737"}]}}]);
+//# sourceMappingURL=834.ea6cd099.chunk.js.map

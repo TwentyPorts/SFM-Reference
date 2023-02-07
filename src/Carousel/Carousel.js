@@ -16,7 +16,7 @@ export const CarouselItem = ({ children, width }) => {
 const Carousel = ({ children }) => {
   // console.log("carousel rendered");
   const [searchParams, setSearchParams] = useSearchParams();
-  const pageParam = searchParams.has("page") ? parseInt(searchParams.get("page")) : 0; // default to 0 if no search parameter present
+  const pageParam = searchParams.has("page") ? parseInt(searchParams.get("page"))-1 : 0; // default to 0 if no search parameter present
   const [activeIndex, setActiveIndex] = useState(pageParam);
   const childrenCount = React.Children.count(children);
   useEffect(() => {

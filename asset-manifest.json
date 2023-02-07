@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/SFM-Reference/static/css/main.b051191e.css",
-    "main.js": "/SFM-Reference/static/js/main.d733becd.js",
+    "main.js": "/SFM-Reference/static/js/main.40990535.js",
     "static/js/508.1689f294.chunk.js": "/SFM-Reference/static/js/508.1689f294.chunk.js",
     "static/js/807.7c2bed52.chunk.js": "/SFM-Reference/static/js/807.7c2bed52.chunk.js",
     "static/js/697.e3b09219.chunk.js": "/SFM-Reference/static/js/697.e3b09219.chunk.js",
@@ -105,7 +105,7 @@
     "static/media/Mezaver\u0000#7274.jpg": "/SFM-Reference/static/media/Mezaver#7274.70c57f4ce905cbcc8ceb.jpg",
     "index.html": "/SFM-Reference/index.html",
     "main.b051191e.css.map": "/SFM-Reference/static/css/main.b051191e.css.map",
-    "main.d733becd.js.map": "/SFM-Reference/static/js/main.d733becd.js.map",
+    "main.40990535.js.map": "/SFM-Reference/static/js/main.40990535.js.map",
     "807.7c2bed52.chunk.js.map": "/SFM-Reference/static/js/807.7c2bed52.chunk.js.map",
     "697.e3b09219.chunk.js.map": "/SFM-Reference/static/js/697.e3b09219.chunk.js.map",
     "690.bffbfc3d.chunk.js.map": "/SFM-Reference/static/js/690.bffbfc3d.chunk.js.map",
@@ -121,6 +121,6 @@
   },
   "entrypoints": [
     "static/css/main.b051191e.css",
-    "static/js/main.d733becd.js"
+    "static/js/main.40990535.js"
   ]
 }

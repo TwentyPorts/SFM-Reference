@@ -31,7 +31,7 @@ function DefaultNavbar() {
               variant="h6"
               noWrap
               component="a"
-              href="/"
+              href="/SFM-Reference/"
               sx={{
                 mr: 4,
                 display: { xs: 'none', md: 'flex' },

@@ -7,6 +7,7 @@ import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium Close-Up Shots/0
 import Thumb_Close_Up_Shots from './Assets/Images/Close-Up Shots/0.jpg';
 import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie and Game Posters/0.jpg';
 import Thumb_JoJo_Approach from './Assets/Images/JoJo Approach/0.jpg';
+import Thumb_Black_Bars from './Assets/Images/Black Bars/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
 import Thumb_Planes from './Assets/Images/Planes/0.jpg';
 import Thumb_Deformed_Mercs from './Assets/Images/Deformed Mercs/0.jpg';
@@ -56,6 +57,11 @@ export const gridData=[
       "tag": "JoJo Approach",
       "image": Thumb_JoJo_Approach,
       "desc": "Composition mimicking the 'Oh? You're Approaching Me?' scene from JoJo's Bizarre Adventure."
+    },
+    {
+      "tag": "Black Bars",
+      "image": Thumb_Black_Bars,
+      "desc": "Creative uses of (diagonal) posable black bars."
     },
     {
       "tag": "Cars",

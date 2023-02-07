@@ -43,5 +43,9 @@ export const carouselData = [
   },
   {
     author: "waxik#4831"
-  }
+  },
+  {
+    author: "s0rex",
+    link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2894261037"
+  },
 ];

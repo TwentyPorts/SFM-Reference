@@ -49,20 +49,19 @@ class GridView extends React.Component {
 
   render() {
     let { navigateTo } = this.state;
+
     let numItems = gridData.length;
+    let gridItemsArray = []; // grid items to be rendered
+    for (let i = 0; i < numItems; i++) {
+      gridItemsArray.push(this.renderGridItem(i));
+    }
+
     return (
       <Box sx={{ flexGrow: 1, marginTop: "10px" }}>
         <Grid container spacing={2} sx={{ p: 1 }}>
-          {this.renderGridItem(0)}
-          {this.renderGridItem(1)}
-          {this.renderGridItem(2)}
-          {this.renderGridItem(3)}
-          {this.renderGridItem(4)}
-          {this.renderGridItem(5)}
-          {this.renderGridItem(6)}
-          {this.renderGridItem(7)}
-          {this.renderGridItem(8)}
-          {this.renderGridItem(9)}
+          {gridItemsArray.map((component, index) => (
+            <React.Fragment key={index}>{component}</React.Fragment>
+          ))}
         </Grid>
 
         {navigateTo != null && <Navigate to={"/" + navigateTo} />}

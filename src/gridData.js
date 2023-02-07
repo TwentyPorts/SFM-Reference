@@ -6,6 +6,7 @@ import Thumb_Medium_Shots from './Assets/Images/Medium Shots/0.jpg';
 import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium Close-Up Shots/0.jpg';
 import Thumb_Close_Up_Shots from './Assets/Images/Close-Up Shots/0.jpg';
 import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie and Game Posters/0.jpg';
+import Thumb_JoJo_Approach from './Assets/Images/JoJo Approach/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
 import Thumb_Planes from './Assets/Images/Planes/0.jpg';
 import Thumb_Deformed_Mercs from './Assets/Images/Deformed Mercs/0.jpg';
@@ -52,6 +53,11 @@ export const gridData=[
       "desc": "Parodies of movie, game, and other media's poster art."
     },
     {
+      "tag": "JoJo You're Approaching Me",
+      "image": Thumb_JoJo_Approach,
+      "desc": "Composition mimicking the 'Oh? You're Approaching Me?' scene from JoJo's Bizarre Adventure."
+    },
+    {
       "tag": "Cars",
       "image": Thumb_Cars,
       "desc": "Shots prominently featuring cars."
@@ -64,6 +70,6 @@ export const gridData=[
     {
       "tag": "Deformed Mercs",
       "image": Thumb_Deformed_Mercs,
-      "desc": "TF2 mercenaries deformed into unusual monstrosities."
+      "desc": "TF2 mercenaries deformed into strange monstrosities."
     },
   ];

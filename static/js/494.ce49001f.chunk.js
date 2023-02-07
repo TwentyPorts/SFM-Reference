@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunksfm_reference=self.webpackChunksfm_reference||[]).push([[494],{5494:function(r,e,u){u.r(e),u.d(e,{carouselData:function(){return a}});var a=[{author:"Snegyrys#9560"},{author:"STATIC#0620"},{author:"Snegyrys#9560"},{author:"MajinBro#4297"},{author:"Mr. Fred#7830"},{author:"STATIC#0620"},{author:"Mr. Fred#7830"},{author:"Cheops#7852"}]}}]);
+//# sourceMappingURL=494.ce49001f.chunk.js.map

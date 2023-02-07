@@ -1,88 +1,128 @@
-import Image0 from "../../Assets/Images/Full Shots/0.jpg";
-import Image1 from "../../Assets/Images/Full Shots/1.jpg";
-import Image2 from "../../Assets/Images/Full Shots/2.jpg";
-import Image3 from "../../Assets/Images/Full Shots/3.jpg";
-import Image4 from "../../Assets/Images/Full Shots/4.jpg";
-import Image5 from "../../Assets/Images/Full Shots/5.jpg";
-import Image6 from "../../Assets/Images/Full Shots/6.jpg";
-import Image7 from "../../Assets/Images/Full Shots/7.jpg";
-import Image8 from "../../Assets/Images/Full Shots/8.jpg";
-import Image9 from "../../Assets/Images/Full Shots/9.jpg";
-import Image10 from "../../Assets/Images/Full Shots/10.jpg";
-import Image11 from "../../Assets/Images/Full Shots/11.jpg";
-import Image12 from "../../Assets/Images/Full Shots/12.jpg";
-import Image13 from "../../Assets/Images/Full Shots/13.jpg";
-import Image14 from "../../Assets/Images/Full Shots/14.jpg";
-import Image15 from "../../Assets/Images/Full Shots/15.jpg";
-import Image16 from "../../Assets/Images/Full Shots/16.jpg";
-
 export const carouselData = [
   {
-    author: "Wifber#9952",
-    image: Image0
+    author: "Wifber#9952"
   },
   {
-    author: "lamoz571#1253",
-    image: Image1
+    author: "lamoz571#1253"
   },
   {
     author: "Sun Cooch#0431",
-    image: Image2
+    low_angle: true
   },
   {
-    author: "Kay Catter#4169",
-    image: Image3
+    author: "Kay Catter#4169"
   },
   {
-    author: "tension#9534",
-    image: Image4
+    author: "tension#9534"
   },
   {
-    author: "Unrivalled Hatred.#1957",
-    image: Image5
+    author: "Unrivalled Hatred.#1957"
   },
   {
-    author: "si moon#6837",
-    image: Image6
+    author: "si moon#6837"
   },
   {
-    author: "DUSTIN#8039",
-    image: Image7
+    author: "DUSTIN#8039"
   },
   {
-    author: "Mulky#9955",
-    image: Image8
+    author: "Mulky#9955"
   },
   {
-    author: "Cheops#7852",
-    image: Image9
+    author: "Cheops#7852"
   },
   {
-    author: "Viourn#4940",
-    image: Image10
+    author: "Viourn#4940"
   },
   {
     author: "Mr Schnue#4897",
-    image: Image11
+    low_angle: true
   },
   {
-    author: "vers#6747",
-    image: Image12
+    author: "vers#6747"
   },
   {
-    author: "eggsalad#2271",
-    image: Image13
+    author: "eggsalad#2271"
   },
   {
     author: "The Mati#7485",
-    image: Image14
+    low_angle: true
   },
   {
-    author: "hellhounds04#5955",
-    image: Image15
+    author: "hellhounds04#5955"
   },
   {
-    author: "Lil' Boneless Pizza#5094",
-    image: Image16
+    author: "Lil' Boneless Pizza#5094"
+  },
+  {
+    author: "RobinAsp#8138",
+    low_angle: true
+  },
+  {
+    author: "ghobleen#6971",
+    high_angle: true
+  },
+  {
+    author: "Anxiety#1987",
+    high_angle: true
+  },
+  {
+    author: "Fussy#2323",
+    high_angle: true
+  },
+  {
+    author: "Locus#9024",
+    low_angle: true
+  },
+  {
+    author: "Sun Cooch#0431",
+    low_angle: true
+  },
+  {
+    author: "tension#9534",
+    low_angle: true
+  },
+  {
+    author: "@Komegatze",
+    link: "https://twitter.com/Komegatze/status/1558967362472316928?s=20&t=c3oA37bwSGKrOFsEd0PAjQ",
+    low_angle: true
+  },
+  {
+    author: "Faz#7302"
+  },
+  {
+    author: "pablo.gonzalez.2002yahoo.com#8191"
+  },
+  {
+    author: "engieboi#9310"
+  },
+  {
+    author: "Joy Jordan#5623"
+  },
+  {
+    author: "NORKAN#9928"
+  },
+  {
+    author: "filmz#6549"
+  },
+  {
+    author: "Sir_Scar_III#0111"
+  },
+  {
+    author: "EdwardNigma#2601"
+  },
+  {
+    author: "Melancia#2734"
+  },
+  {
+    author: "winkree#4304"
+  },
+  {
+    author: "winkree#4304"
+  },
+  {
+    author: "winkree#4304"
+  },
+  {
+    author: "vers#6747"
   },
 ];

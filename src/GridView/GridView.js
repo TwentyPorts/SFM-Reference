@@ -3,13 +3,18 @@ import "./GridView.css";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { gridData } from "../gridData";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 
 function GridItem(props) {
   return (
-    <Grid className="grid-container" item xs='auto'>
+    <Grid className="grid-container" item xs="auto">
       <div className="grid-item" onClick={props.onClick}>
-        <img alt="thumb" className="grid-item-image" title={props.desc} src={props.image}></img>
+        <img
+          alt="thumb"
+          className="grid-item-image"
+          title={props.desc}
+          src={props.image}
+        ></img>
         <div className="grid-item-tag">{props.tag}</div>
       </div>
     </Grid>
@@ -21,13 +26,13 @@ class GridView extends React.Component {
     super(props);
     this.state = {
       gridData: gridData,
-      navigateTo: null
+      navigateTo: null,
     };
   }
 
   // Navigate to carousel view for whichever category was clicked
   handleClick(i) {
-    this.setState({navigateTo: i});
+    this.setState({ navigateTo: i });
   }
 
   // Render a single GridItem
@@ -44,24 +49,22 @@ class GridView extends React.Component {
 
   render() {
     let { navigateTo } = this.state;
+
+    let numItems = gridData.length;
+    let gridItemsArray = []; // grid items to be rendered
+    for (let i = 0; i < numItems; i++) {
+      gridItemsArray.push(this.renderGridItem(i));
+    }
+
     return (
-      <Box sx={{ flexGrow: 1, marginTop: '10px' }}>
+      <Box sx={{ flexGrow: 1, marginTop: "10px" }}>
         <Grid container spacing={2} sx={{ p: 1 }}>
-          {this.renderGridItem(0)}
-          {this.renderGridItem(1)}
-          {this.renderGridItem(2)}
-          {this.renderGridItem(3)}
-          {this.renderGridItem(4)}
-          {this.renderGridItem(5)}
-          {this.renderGridItem(6)}
-          {this.renderGridItem(7)}
-          {this.renderGridItem(8)}
-          {this.renderGridItem(9)}
+          {gridItemsArray.map((component, index) => (
+            <React.Fragment key={index}>{component}</React.Fragment>
+          ))}
         </Grid>
 
-        {navigateTo!=null && (
-          <Navigate to={"/"+navigateTo} />
-        )}
+        {navigateTo != null && <Navigate to={"/" + navigateTo} />}
       </Box>
     );
   }

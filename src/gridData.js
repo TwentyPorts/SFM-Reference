@@ -6,6 +6,7 @@ import Thumb_Medium_Shots from './Assets/Images/Medium_Shots/0.jpg';
 import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium_Close-Up_Shots/0.jpg';
 import Thumb_Close_Up_Shots from './Assets/Images/Close-Up_Shots/0.jpg';
 import Thumb_Movie_and_Game_Posters from './Assets/Images/Movie_and_Game_Posters/0.jpg';
+import Thumb_Scenebuilds from './Assets/Images/Scenebuilds/0.jpg';
 import Thumb_JoJo_Approach from './Assets/Images/JoJo_Approach/0.jpg';
 import Thumb_Black_Bars from './Assets/Images/Black_Bars/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
@@ -63,6 +64,12 @@ export const gridData={
       "tag": "Movie and Game Posters",
       "image": Thumb_Movie_and_Game_Posters,
       "desc": "Parodies of movie, game, and other media's poster art."
+    },
+    "Scenebuilds":
+    {
+      "tag": "Scenebuilds",
+      "image": Thumb_Scenebuilds,
+      "desc": "Scenebuilds that don't focus on characters."
     },
     "JoJo_Approach":
     {

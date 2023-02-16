@@ -3,6 +3,17 @@
   font-family: sans-serif;
 }
 
+.filters {
+  margin-top: 10px;
+  color: #a89368;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .inner {
   white-space: nowrap;
   transition: transform 0.3s;
@@ -72,4 +83,58 @@ ul .MuiPaginationItem-root.Mui-selected {
 
 ul .MuiPaginationItem-root.Mui-selected:hover {
   background-color: #fdf8ed;
+}
+
+.tag-button {
+  appearance: none;
+  background-color: #534933;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.tag-button:hover {
+  background-color: #a89368;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.tag-button:disabled {
+  background-color: #534933;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.tag-button:active {
+  background-color: #e2c68e;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.tag-button:focus {
+  outline: 1px transparent;
+}
+
+.tag-button:before {
+  display: none;
+}
+
+.tag-button:-webkit-details-marker {
+  display: none;
 }

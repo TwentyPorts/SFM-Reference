@@ -13,14 +13,20 @@ export const CarouselItem = ({ children, width }) => {
   );
 };
 
-const Carousel = ({ children }) => {
+const Tag = ({ tagName }) => {
+  return <div class="tag-button" role="button">{tagName}</div>;
+};
+
+const Carousel = ({ children, tags }) => {
   // console.log("carousel rendered");
   const [searchParams, setSearchParams] = useSearchParams();
-  const pageParam = searchParams.has("page") ? parseInt(searchParams.get("page"))-1 : 0; // default to 0 if no search parameter present
+  const pageParam = searchParams.has("page")
+    ? parseInt(searchParams.get("page")) - 1
+    : 0; // default to 0 if no search parameter present
   const [activeIndex, setActiveIndex] = useState(pageParam);
   const childrenCount = React.Children.count(children);
   useEffect(() => {
-    // console.log("effect used"); 
+    // console.log("effect used");
 
     // Subscribe once
     document.addEventListener("keydown", keyPress);
@@ -33,15 +39,17 @@ const Carousel = ({ children }) => {
   // Update index of image to display
   const updateIndex = (e, p) => {
     p = p - 1;
-    if (p < 0) { // wraparound to last element
+    if (p < 0) {
+      // wraparound to last element
       p = React.Children.count(children) - 1;
-    } else if (p >= React.Children.count(children)) { // wraparound to first element
+    } else if (p >= React.Children.count(children)) {
+      // wraparound to first element
       p = 0;
     }
 
     setActiveIndex(p);
 
-    setSearchParams({page: p+1});
+    setSearchParams({ page: p + 1 });
   };
 
   // Mobile swiping support
@@ -66,6 +74,13 @@ const Carousel = ({ children }) => {
 
   return (
     <div {...handlers} className="carousel">
+      <div className="filters">
+        {tags.current
+          ? new Array(...tags.current).map((tagName) => {
+              return <Tag tagName={tagName}></Tag>;
+            })
+          : null}
+      </div>
       <div
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}

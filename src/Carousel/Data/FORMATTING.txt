@@ -1,0 +1,6 @@
+All files in the Carousel/Data folder should export a const called carouselData, which is an array of objects.
+The objects have these properties:
+    * author - required, String
+    * type - non-empty array of Strings
+    * link - String representing a valid URL
+Additionally, code should be organized such that every object takes up one line. This is just for organization purposes so that every object in the array can be matched to its array index by looking at the line number - 2.

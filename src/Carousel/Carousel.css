@@ -13,6 +13,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  flex-direction: column;
 }
 
 .carousel-item-author {
@@ -21,6 +22,13 @@
   margin: 7px 0;
   text-decoration: none;
   font-weight: bold;
+}
+
+.carousel-item-tags {
+  color: #a89368;
+  font-size: 1em;
+  margin: 0 0 10px;
+  text-decoration: none;
 }
 
 .carousel-item-image-wrapper {

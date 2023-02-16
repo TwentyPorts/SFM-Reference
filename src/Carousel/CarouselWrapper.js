@@ -13,24 +13,34 @@ const CarouselWrapper = () => {
 
   async function getData() {
     setData(await import("./Data/" + category));
-    
+
     if (data) {
       dataFetched = true; // carousel data only needs to be fetched once
+      var carouselData = data.carouselData;
+      const uniqueTags = new Set();
+      carouselData.forEach((obj) => {
+        if (Object.hasOwn(obj, "type")) uniqueTags.add(obj.type);
+      });
       setListItems(
-        data.carouselData.map((element, index) => {
+        carouselData.map((element, index) => {
           return (
             <CarouselItem key={index}>
               <div className="carousel-item-image-wrapper">
                 <img
                   className="carousel-item-image"
                   alt=""
-                  src={require("../Assets/Images/" + category + "/" + index + ".jpg")}
+                  src={require("../Assets/Images/" +
+                    category +
+                    "/" +
+                    index +
+                    ".jpg")}
                 ></img>
               </div>
               <div className="carousel-item-author">
                 Author: {element.author}{" "}
                 {element.link ? <a href={element.link}>(link)</a> : null}
               </div>
+              <div className="carousel-item-tags">Tag(s): {element.type ? element.type.join(", ") : "none"}</div>
             </CarouselItem>
           );
         })

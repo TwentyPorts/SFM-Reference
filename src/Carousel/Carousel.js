@@ -13,10 +13,6 @@ export const CarouselItem = ({ children, width }) => {
   );
 };
 
-const Tag = ({ tagName }) => {
-  return <div class="tag-button" role="button">{tagName}</div>;
-};
-
 const Carousel = ({ children, tags }) => {
   // console.log("carousel rendered");
   const [searchParams, setSearchParams] = useSearchParams();
@@ -24,9 +20,12 @@ const Carousel = ({ children, tags }) => {
     ? parseInt(searchParams.get("page")) - 1
     : 0; // default to 0 if no search parameter present
   const [activeIndex, setActiveIndex] = useState(pageParam);
+  const [filters, setFilters] = useState([]);
+  const [carouselItems, setCarouselItems] = useState();
   const childrenCount = React.Children.count(children);
   useEffect(() => {
     // console.log("effect used");
+    applyFilters();
 
     // Subscribe once
     document.addEventListener("keydown", keyPress);
@@ -72,12 +71,61 @@ const Carousel = ({ children, tags }) => {
     }
   }
 
+  // Add or remove a filter to the "filters" state, then update the CSS class for the corresponding button
+  function updateFilters(tagName) {
+    let filtersArray = filters;
+    let inactiveClassName = "tag-button-" + tagName.replace(/\s+/g, "");
+    let buttonElem = document.getElementsByClassName(inactiveClassName);
+    if (buttonElem.length !== 1) {
+      console.log("Didn't find exactly 1 button; something went wrong?");
+    }
+    buttonElem = buttonElem[0];
+
+    if (filtersArray.includes(tagName)) {
+      filtersArray.splice(filtersArray.indexOf(tagName, 1));
+      buttonElem.classList.remove("tag-button-active");
+    } else {
+      filtersArray.push(tagName);
+      buttonElem.classList.add("tag-button-active");
+    }
+    setFilters(filtersArray);
+
+    applyFilters(); // re-render
+  }
+
+  // Update the "carouselItems" state with any new filters applied; this triggers a re-render
+  function applyFilters() {
+    let images = [];
+    React.Children.map(children, (child, index) => {
+      let childTags = child.props.children[2].props.children[1].split(", ");
+      if (
+        filters.length === 0 ||
+        filters.some((tag) =>
+          childTags.includes(tag)
+        )
+      ) {
+        images.push(React.cloneElement(child, { width: "100%" }));
+      }
+    });
+    setCarouselItems(images);
+  }
+
   return (
     <div {...handlers} className="carousel">
       <div className="filters">
         {tags.current
-          ? new Array(...tags.current).map((tagName) => {
-              return <Tag tagName={tagName}></Tag>;
+          ? new Array(...tags.current).map((tagName, index) => {
+              let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
+              return (
+                <div
+                  className={"tag-button tag-button-" + tagNameWithoutSpaces}
+                  role="button"
+                  onClick={() => updateFilters(tagName)}
+                  key={index}
+                >
+                  {tagName}
+                </div>
+              );
             })
           : null}
       </div>
@@ -85,13 +133,11 @@ const Carousel = ({ children, tags }) => {
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
-        {React.Children.map(children, (child, index) => {
-          return React.cloneElement(child, { width: "100%" });
-        })}
+        {carouselItems}
       </div>
       <div className="indicators">
         <Pagination
-          count={React.Children.count(children)}
+          count={carouselItems ? carouselItems.length : 0}
           showFirstButton
           showLastButton
           page={activeIndex + 1}

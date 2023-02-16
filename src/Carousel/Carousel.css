@@ -3,17 +3,6 @@
   font-family: sans-serif;
 }
 
-.filters {
-  margin-top: 10px;
-  color: #a89368;
-  font-size: 1em;
-  text-decoration: none;
-  font-weight: bold;
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-}
-
 .inner {
   white-space: nowrap;
   transition: transform 0.3s;
@@ -85,6 +74,17 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   background-color: #fdf8ed;
 }
 
+.filters {
+  margin: 10px 0;
+  color: #a89368;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
 .tag-button {
   appearance: none;
   background-color: #534933;
@@ -121,20 +121,12 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   cursor: default;
 }
 
-.tag-button:active {
+.tag-button-active {
   background-color: #e2c68e;
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
 }
 
-.tag-button:focus {
-  outline: 1px transparent;
-}
-
 .tag-button:before {
-  display: none;
-}
-
-.tag-button:-webkit-details-marker {
   display: none;
 }

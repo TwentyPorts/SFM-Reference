@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useSwipeable } from "react-swipeable";
 import Pagination from "@mui/material/Pagination";
 import { useSearchParams } from "react-router-dom";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import "./Carousel.css";
 
@@ -23,6 +25,8 @@ const Carousel = ({ children, tags }) => {
   const [filters, setFilters] = useState([]);
   const [carouselItems, setCarouselItems] = useState();
   const childrenCount = React.Children.count(children);
+  const [filtersContainerVisible, toggleFiltersContainerVisible] =
+    useState(false);
   useEffect(() => {
     // console.log("effect used");
     applyFilters();
@@ -100,9 +104,7 @@ const Carousel = ({ children, tags }) => {
       let childTags = child.props.children[2].props.children[1].split(", ");
       if (
         filters.length === 0 ||
-        filters.some((tag) =>
-          childTags.includes(tag)
-        )
+        filters.some((tag) => childTags.includes(tag))
       ) {
         images.push(React.cloneElement(child, { width: "100%" }));
       }
@@ -110,25 +112,60 @@ const Carousel = ({ children, tags }) => {
     setCarouselItems(images);
   }
 
+  function toggleFiltersContainer() {
+    toggleFiltersContainerVisible(!filtersContainerVisible);
+  }
+
   return (
     <div {...handlers} className="carousel">
-      <div className="filters">
-        {tags.current
-          ? new Array(...tags.current).map((tagName, index) => {
-              let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
-              return (
-                <div
-                  className={"tag-button tag-button-" + tagNameWithoutSpaces}
-                  role="button"
-                  onClick={() => updateFilters(tagName)}
-                  key={index}
-                >
-                  {tagName}
-                </div>
-              );
-            })
-          : null}
-      </div>
+      {filtersContainerVisible ? (
+        <div className="filters">
+          <div className="tags-container">
+            <span className="filters-title">Filter by Tags</span>
+            {tags.current
+              ? new Array(...tags.current).map((tagName, index) => {
+                  let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
+                  return (
+                    <div
+                      className={
+                        "tag-button tag-button-" + tagNameWithoutSpaces
+                      }
+                      role="button"
+                      onClick={() => updateFilters(tagName)}
+                      key={index}
+                    >
+                      {tagName}
+                    </div>
+                  );
+                })
+              : null}
+          </div>
+          <div className="filters-toggle-container">
+            <button
+              className="filters-toggle-button"
+              onClick={toggleFiltersContainer}
+            >
+              <KeyboardArrowUpIcon />
+            </button>
+          </div>
+        </div>
+      ) : (
+        <div
+          className="filters"
+          style={
+            tags.current && tags.current.size === 0 ? { display: "none" } : null
+          }
+        >
+          <div className="filters-toggle-container">
+            <button
+              className="filters-toggle-button"
+              onClick={toggleFiltersContainer}
+            >
+              <KeyboardArrowDownIcon />
+            </button>
+          </div>
+        </div>
+      )}
       <div
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}

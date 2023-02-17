@@ -16,7 +16,6 @@ export const CarouselItem = ({ children, width }) => {
 };
 
 const Carousel = ({ children, tags }) => {
-  // console.log("carousel rendered");
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = searchParams.has("page")
     ? parseInt(searchParams.get("page")) - 1
@@ -27,6 +26,7 @@ const Carousel = ({ children, tags }) => {
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
+  let carouselItemsLength = carouselItems ? carouselItems.length : 0;
   useEffect(() => {
     // console.log("effect used");
     applyFilters();
@@ -37,15 +37,15 @@ const Carousel = ({ children, tags }) => {
     return () => {
       document.removeEventListener("keydown", keyPress);
     };
-  }, [activeIndex, childrenCount]);
+  }, [activeIndex, childrenCount, carouselItemsLength]);
 
   // Update index of image to display
   const updateIndex = (e, p) => {
     p = p - 1;
     if (p < 0) {
       // wraparound to last element
-      p = React.Children.count(children) - 1;
-    } else if (p >= React.Children.count(children)) {
+      p = carouselItemsLength - 1;
+    } else if (p >= carouselItemsLength) {
       // wraparound to first element
       p = 0;
     }
@@ -174,7 +174,7 @@ const Carousel = ({ children, tags }) => {
       </div>
       <div className="indicators">
         <Pagination
-          count={carouselItems ? carouselItems.length : 0}
+          count={carouselItems ? carouselItemsLength : 0}
           showFirstButton
           showLastButton
           page={activeIndex + 1}

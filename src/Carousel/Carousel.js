@@ -110,6 +110,9 @@ const Carousel = ({ children, tags }) => {
       }
     });
     setCarouselItems(images);
+    if(images.length !== 0 && activeIndex > images.length - 1) {
+      updateIndex(null, images.length);
+    }
   }
 
   function toggleFiltersContainer() {

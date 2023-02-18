@@ -73,3 +73,105 @@ ul .MuiPaginationItem-root.Mui-selected {
 ul .MuiPaginationItem-root.Mui-selected:hover {
   background-color: #fdf8ed;
 }
+
+.filters {
+  margin: 0 0 5px;
+  color: #a89368;
+  font-size: 1em;
+  text-decoration: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.tags-container {
+  background-color: #bea676;
+  width: fit-content;
+  padding: 7px;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0 inset;
+  flex-wrap: wrap;
+}
+
+.tag-button {
+  appearance: none;
+  background-color: #534933;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0 inset;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  padding: 6px 16px;
+  position: relative;
+  transition: background-color 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.tag-button:hover {
+  background-color: #a89368;
+  text-decoration: none;
+  transition-duration: 0.1s;
+}
+
+.tag-button:disabled {
+  background-color: #534933;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
+}
+
+.tag-button-active {
+  border: 1px solid rgba(27, 31, 35, 0.356);
+  background-color: #e2c68e;
+  box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
+  transition: none 0s;
+}
+
+.tag-button:before {
+  display: none;
+}
+
+.filters-title {
+  display: flex;
+  flex-basis: 100%;
+  width: 0;
+  justify-content: center;
+  background-color: #bea676;
+  color: rgb(31, 31, 31);
+  font-family: sans-serif;
+  letter-spacing: 1.2px;
+  font-style: italic;
+}
+
+.filters-toggle-container {
+  display: flex;
+  flex-basis: 100%;
+  justify-content: center;
+}
+
+.filters-toggle-button {
+  display: flex;
+  align-items: center;
+  background-color: #bea676;
+  height: 75%;
+  cursor: pointer;
+  border: 1px solid rgba(27, 31, 35, 0.15);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0 inset;
+}

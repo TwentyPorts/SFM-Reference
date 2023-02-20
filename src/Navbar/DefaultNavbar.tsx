@@ -37,7 +37,7 @@ function DefaultNavbar() {
                 display: { xs: 'none', md: 'flex' },
                 fontFamily: 'sans-serif',
                 fontWeight: 700,
-                color: '#fdf8ed',
+                color: '#fff',
                 textDecoration: 'none',
               }}
             >
@@ -48,7 +48,7 @@ function DefaultNavbar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  sx={{ my: 2, color: '#fdf8ed', display: 'block' }}
+                  sx={{ my: 2, color: '#fff', display: 'block' }}
                   component={Link}
                   to={page}
                 >

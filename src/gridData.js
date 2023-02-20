@@ -21,84 +21,84 @@ export const gridData={
     {
       "tag": "Valve-Style Portraits",
       "image": Thumb_Valve_Portraits,
-      "desc": "Character portraits made in Valve's iconic style."
+      "desc": "Character portraits made in Valve's iconic style"
     },
     "POV_Punch":
     {
       "tag": "POV Punch",
       "image": Thumb_POV_Punch,
-      "desc": "POV of a character punching the viewer with exaggerated perspective."
+      "desc": "POV shots of a character punching the viewer with exaggerated perspective"
     },
     "Extreme_Long_Shots":
     {
       "tag": "Extreme Long Shots",
       "image": Thumb_Extreme_Long_Shots,
-      "desc": "Shots that frame the character from a distance, focusing more on their surroundings."
+      "desc": "Shots that frame the character from a distance, focusing more on their surroundings"
     },
     "Full_Shots":
     {
       "tag": "Full Shots",
       "image": Thumb_Full_Shots,
-      "desc": "Shots that focus on a single character's full body, head to toe."
+      "desc": "Shots that focus on a single character's full body, head to toe"
     },
     "Medium_Shots":
     {
       "tag": "Medium Shots",
       "image": Thumb_Medium_Shots,
-      "desc": "Shots of a single character from around the waist up."
+      "desc": "Shots of a single character from around the waist up"
     },
     "Medium_Close-Up_Shots":
     {
       "tag": "Medium Close-Up Shots",
       "image": Thumb_Medium_Close_Up_Shots,
-      "desc": "Shots of a single character from around the chest or shoulders up."
+      "desc": "Shots of a single character from around the chest or shoulders up"
     },
     "Close-Up_Shots":
     {
       "tag": "Close-Up Shots",
       "image": Thumb_Close_Up_Shots,
-      "desc": "Shots of a single character's face."
+      "desc": "Shots of a single character's face"
     },
     "Movie_and_Game_Posters":
     {
       "tag": "Movie and Game Posters",
       "image": Thumb_Movie_and_Game_Posters,
-      "desc": "Parodies of movie, game, and other media's poster art."
+      "desc": "Parodies of promotional posters from movies, games, and other forms of media"
     },
     "Scenebuilds":
     {
       "tag": "Scenebuilds",
       "image": Thumb_Scenebuilds,
-      "desc": "Scenebuilds that don't focus on characters."
+      "desc": "Scenebuilds that don't focus on characters"
     },
     "JoJo_Approach":
     {
       "tag": "JoJo Approach",
       "image": Thumb_JoJo_Approach,
-      "desc": "Composition mimicking the 'Oh? You're Approaching Me?' scene from JoJo's Bizarre Adventure."
+      "desc": "Composition mimicking the 'Oh? You're Approaching Me?' scene from JoJo's Bizarre Adventure"
     },
     "Black_Bars":
     {
       "tag": "Black Bars",
       "image": Thumb_Black_Bars,
-      "desc": "Creative uses of (diagonal) posable black bars."
+      "desc": "Creative uses of (diagonal) posable black bars"
     },
     "Cars":
     {
       "tag": "Cars",
       "image": Thumb_Cars,
-      "desc": "Shots prominently featuring cars."
+      "desc": "Shots that focus on cars"
     },
     "Planes":
     {
       "tag": "Planes",
       "image": Thumb_Planes,
-      "desc": "Shots prominently featuring planes or other aircraft."
+      "desc": "Shots that focus on planes or other aircraft"
     },
     "Deformed_Mercs":
     {
       "tag": "Deformed Mercs",
       "image": Thumb_Deformed_Mercs,
-      "desc": "TF2 mercenaries deformed into strange monstrosities."
+      "desc": "TF2 mercenaries deformed into strange monstrosities"
     },
 };

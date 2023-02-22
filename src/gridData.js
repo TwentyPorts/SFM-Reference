@@ -1,6 +1,6 @@
 import Thumb_Valve_Portraits from './Assets/Images/Valve-Style_Portraits/0.jpg';
 import Thumb_POV_Punch from './Assets/Images/POV_Punch/0.jpg';
-import Thumb_Extreme_Long_Shots from './Assets/Images/Extreme_Long_Shots/0.jpg';
+import Thumb_Long_Shots from './Assets/Images/Long_Shots/0.jpg';
 import Thumb_Full_Shots from './Assets/Images/Full_Shots/0.jpg';
 import Thumb_Medium_Shots from './Assets/Images/Medium_Shots/0.jpg';
 import Thumb_Medium_Close_Up_Shots from './Assets/Images/Medium_Close-Up_Shots/0.jpg';
@@ -29,17 +29,17 @@ export const gridData={
       "image": Thumb_POV_Punch,
       "desc": "POV shots of a character punching the viewer with exaggerated perspective"
     },
-    "Extreme_Long_Shots":
+    "Long_Shots":
     {
-      "tag": "Extreme Long Shots",
-      "image": Thumb_Extreme_Long_Shots,
+      "tag": "Long Shots",
+      "image": Thumb_Long_Shots,
       "desc": "Shots that frame the character from a distance, focusing more on their surroundings"
     },
     "Full_Shots":
     {
       "tag": "Full Shots",
       "image": Thumb_Full_Shots,
-      "desc": "Shots that focus on a single character's full body, head to toe"
+      "desc": "Shots that focus on a single character's full body, head to toe; usually vertical"
     },
     "Medium_Shots":
     {
@@ -81,7 +81,7 @@ export const gridData={
     {
       "tag": "Black Bars",
       "image": Thumb_Black_Bars,
-      "desc": "Creative uses of (diagonal) posable black bars"
+      "desc": "Creative uses of posable black bars"
     },
     "Cars":
     {

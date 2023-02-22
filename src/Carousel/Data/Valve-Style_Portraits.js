@@ -10,5 +10,8 @@ export const carouselData = [
   { author: "StegArt" },
   { author: "SharpeFan", link: "https://www.deviantart.com/sharpe-fan/art/SFM-MG-Sergei-Petrov-Valve-Portrait-style-793189862" },
   { author: "ghobleen#6971" },
-  { author: "SonicChaos#0846" }
+  { author: "SonicChaos#0846" },
+  { author: "ghobleen#6971" },
+  { author: "ghobleen#6971" },
+  { author: "ghobleen#6971" },
 ];

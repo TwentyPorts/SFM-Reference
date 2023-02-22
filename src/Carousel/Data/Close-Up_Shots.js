@@ -5,5 +5,12 @@ export const carouselData = [
   { author: "John Skeleton#0508" },
   { author: "Tem Zilla#6310" },
   { author: "RobinAsp#8138" },
-  { author: "ghobleen#6971" }
+  { author: "ghobleen#6971" },
+  { author: "Troy#4734" },
+  { author: "Bread#7776" },
+  { author: "Star in a pond#8492" },
+  { author: "Star in a pond#8492" },
+  { author: "herpes#5667" },
+  { author: "Unknown (account was deleted)" },
+  { author: "kvaran_kupus#1593" },
 ];

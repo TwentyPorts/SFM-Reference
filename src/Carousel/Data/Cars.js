@@ -11,4 +11,5 @@ export const carouselData = [
   { author: "Faible#9371" },
   { author: "vers#6747" },
   { author: "matkovic#6348" },
+  { author: "lolripk#5504" },
 ];

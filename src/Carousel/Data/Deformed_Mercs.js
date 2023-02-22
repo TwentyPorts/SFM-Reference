@@ -9,4 +9,7 @@ export const carouselData = [
   { author: "Will-fr", link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2875201850" },
   { author: "Fullcaber", link: "https://steamcommunity.com/sharedfiles/filedetails/?id=2873755622" },
   { author: "Maverick#3895", },
+  { author: "eggsalad#2271" },
+  { author: "AverageSpyMain#6387" },
+  { author: "AverageSpyMain#6387" },
 ];

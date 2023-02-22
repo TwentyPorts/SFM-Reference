@@ -6,4 +6,6 @@ export const carouselData = [
   { author: "Vo Memes#1860" },
   { author: "eggsalad#2271" },
   { author: "Mezaver#7274" },
+  { author: "Fussy#2323" },
+  { author: "28Hurricanes#6674" },
 ];

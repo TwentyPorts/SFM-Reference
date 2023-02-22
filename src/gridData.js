@@ -11,6 +11,7 @@ import Thumb_JoJo_Approach from './Assets/Images/JoJo_Approach/0.jpg';
 import Thumb_Black_Bars from './Assets/Images/Black_Bars/0.jpg';
 import Thumb_Cars from './Assets/Images/Cars/0.jpg';
 import Thumb_Planes from './Assets/Images/Planes/0.jpg';
+import Thumb_Guns from './Assets/Images/Guns/0.jpg';
 import Thumb_Deformed_Mercs from './Assets/Images/Deformed_Mercs/0.jpg';
 
 /*
@@ -94,6 +95,12 @@ export const gridData={
       "tag": "Planes",
       "image": Thumb_Planes,
       "desc": "Shots that focus on planes or other aircraft"
+    },
+    "Guns":
+    {
+      "tag": "Guns",
+      "image": Thumb_Guns,
+      "desc": "Shots that focus on guns"
     },
     "Deformed_Mercs":
     {

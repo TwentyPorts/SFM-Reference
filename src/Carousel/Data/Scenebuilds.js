@@ -57,4 +57,5 @@ export const carouselData = [
   { author: "S T#7157", type: ["Nature"] },
   { author: "Memr#8096", type: ["Urban"] },
   { author: "NORKAN#9928", type: ["Indoors"] },
+  { author: "MintyChip#1000", type: ["Forest","Nature"] },
 ];

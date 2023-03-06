@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunksfm_reference=self.webpackChunksfm_reference||[]).push([[656],{1656:function(e,t,r){r.r(t),r.d(t,{carouselData:function(){return a}});var a=[{author:""},{author:""},{author:"Ze (Inactive)",link:"https://steamcommunity.com/sharedfiles/filedetails/?id=2875255769"}]}}]);
-//# sourceMappingURL=656.3ab6dcaf.chunk.js.map

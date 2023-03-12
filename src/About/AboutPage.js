@@ -1,4 +1,4 @@
-import "./AboutPage.css";
+import "./AboutPage.scss";
 import { gridData } from "../gridData.js";
 import React, { useState } from "react";
 

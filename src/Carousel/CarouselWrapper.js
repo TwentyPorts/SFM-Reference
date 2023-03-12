@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Carousel, { CarouselItem } from "./Carousel";
 
-import "./Carousel.css";
+import "./Carousel.scss";
 
 const CarouselWrapper = () => {
   const [data, setData] = useState();

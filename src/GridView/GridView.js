@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./GridView.css";
+import "./GridView.scss";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { gridData } from "../gridData";

@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import "./Carousel.css";
+import "./Carousel.scss";
 
 export const CarouselItem = ({ children, width }) => {
   return (
@@ -26,6 +26,7 @@ const Carousel = ({ children, tags }) => {
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
+  const [mobile, setMobile] = useState(window.innerWidth <= 500);
   let carouselItemsLength = carouselItems ? carouselItems.length : 0;
   useEffect(() => {
     // console.log("effect used");

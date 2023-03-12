@@ -34,7 +34,7 @@ function DefaultNavbar() {
               href="/SFM-Reference/"
               sx={{
                 mr: 4,
-                display: { xs: 'none', md: 'flex' },
+                display: 'flex',
                 fontFamily: 'sans-serif',
                 fontWeight: 700,
                 color: '#fff',
@@ -44,7 +44,7 @@ function DefaultNavbar() {
               &nbsp;SFM Reference
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+            <Box sx={{ flexGrow: 1, display: 'flex'}}>
               {pages.map((page) => (
                 <Button
                   key={page}

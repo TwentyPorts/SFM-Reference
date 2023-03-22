@@ -30,13 +30,12 @@ const AboutPage = () => {
         <br />
         All images are publicly available, community-created artwork and
         attributed to their original authors wherever possible (which means that
-        I do not claim ownership over any of the images used in this
-        non-commercial app). I took the images from platforms such as Reddit,
+        I do not claim ownership over any of the art being shown). I took the images from platforms such as Reddit,
         the SFM Discord (mainly #starboard), Steam Community, etc.
         <br />
         <br />
-        All hosted images have been compressed to (high-quality) JPGs to reduce
-        file size, if they were not already JPGs.
+        All hosted images have been compressed to high-quality JPGs to reduce
+        file size while maintaining reasonable quality, if they were not already JPGs.
         <br />
         <br />
         Feedback and contributions are always welcome! Please either email{" "}

@@ -61,9 +61,21 @@ body,html {
   box-sizing: border-box;
 }
 
+.indicators-mobile {
+  display: flex;
+  justify-content: center;
+  margin: 5px 0;
+  @media (min-width: 500px) {
+    display: none;
+  }
+}
+
 .indicators {
   display: flex;
   justify-content: center;
+  @media (max-width: 500px) {
+    display: none;
+  }
 }
 
 .indicators > button {

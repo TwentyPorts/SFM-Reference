@@ -44,7 +44,7 @@ const CarouselWrapper = () => {
                 {element.link ? <a href={element.link}>(link)</a> : null}
               </div>
               <div className="carousel-item-tags">
-                Tag(s): {element.type ? element.type.join(", ") : "none"}
+                {element.type ? "Tag(s): " + element.type.join(", ") : null}
               </div>
             </CarouselItem>
           );

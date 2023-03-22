@@ -25,6 +25,9 @@ const AboutPage = () => {
         React while also creating something hopefully interesting.
         <br />
         <br />
+        You can navigate the image slideshows with Left Arrow, Right Arrow, and Enter. On mobile, you can swipe left or right.
+        <br />
+        <br />
         Currently, this website has {numImages} unique images.
         <br />
         <br />

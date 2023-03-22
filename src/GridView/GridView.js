@@ -1,5 +1,5 @@
 import * as React from "react";
-import "./GridView.css";
+import "./GridView.scss";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import { gridData } from "../gridData";
@@ -112,7 +112,12 @@ class GridView extends React.Component {
       <Box sx={{ flexGrow: 1, marginTop: "10px" }}>
         {this.state.categoryInfoMessage}
 
-        <Grid container spacing={2} sx={{ p: 1 }}>
+        <Grid
+          container
+          spacing={2}
+          sx={{ p: 1 }}
+          justifyContent="center"
+        >
           {gridItemsArray.map((component, index) => (
             <React.Fragment key={index}>{component}</React.Fragment>
           ))}

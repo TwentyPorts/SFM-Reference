@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-import "./Carousel.css";
+import "./Carousel.scss";
 
 export const CarouselItem = ({ children, width }) => {
   return (
@@ -26,6 +26,7 @@ const Carousel = ({ children, tags }) => {
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
+  const [mobile, setMobile] = useState(window.innerWidth <= 500);
   let carouselItemsLength = carouselItems ? carouselItems.length : 0;
   useEffect(() => {
     // console.log("effect used");
@@ -86,7 +87,7 @@ const Carousel = ({ children, tags }) => {
     buttonElem = buttonElem[0];
 
     if (filtersArray.includes(tagName)) {
-      filtersArray.splice(filtersArray.indexOf(tagName, 1));
+      filtersArray.splice(filtersArray.indexOf(tagName), 1);
       buttonElem.classList.remove("tag-button-active");
     } else {
       filtersArray.push(tagName);
@@ -101,7 +102,10 @@ const Carousel = ({ children, tags }) => {
   function applyFilters() {
     let images = [];
     React.Children.map(children, (child, index) => {
-      let childTags = child.props.children[2].props.children[1].split(", ");
+      let childTags = "";
+      if(child.props.children[2].props.children) {
+        childTags = child.props.children[2].props.children.substring(8).split(", ");
+      }
       if (
         filters.length === 0 ||
         filters.some((tag) => childTags.includes(tag))
@@ -169,6 +173,16 @@ const Carousel = ({ children, tags }) => {
           </div>
         </div>
       )}
+      <div className="indicators-mobile">
+        <Pagination
+          count={carouselItems ? carouselItemsLength : 0}
+          showFirstButton
+          showLastButton
+          page={activeIndex + 1}
+          onChange={updateIndex}
+          variant="outlined"
+        />
+      </div>
       <div
         className="inner"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}

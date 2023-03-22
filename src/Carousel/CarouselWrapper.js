@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Carousel, { CarouselItem } from "./Carousel";
 
-import "./Carousel.css";
+import "./Carousel.scss";
 
 const CarouselWrapper = () => {
   const [data, setData] = useState();
@@ -44,7 +44,7 @@ const CarouselWrapper = () => {
                 {element.link ? <a href={element.link}>(link)</a> : null}
               </div>
               <div className="carousel-item-tags">
-                Tag(s): {element.type ? element.type.join(", ") : "none"}
+                {element.type ? "Tag(s): " + element.type.join(", ") : null}
               </div>
             </CarouselItem>
           );

@@ -11,6 +11,6 @@ export const carouselData = [
   { author: "Star in a pond#8492" },
   { author: "Star in a pond#8492" },
   { author: "herpes#5667" },
-  { author: "Unknown (account was deleted)" },
+  { author: "Faz#7302" },
   { author: "kvaran_kupus#1593" },
 ];

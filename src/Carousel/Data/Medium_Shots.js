@@ -37,4 +37,6 @@ export const carouselData = [
   { author: "TheFunnyKep#0218" },
   { author: "Hoxdolum#1937" },
   { author: "Melancia#2734" },
+  { author: "Patrick Jr.", link: "https://steamcommunity.com/sharedfiles/filedetails/?id=184158445" },
+  { author: "Patrick Jr.", link: "https://steamcommunity.com/sharedfiles/filedetails/?id=3090775174" },
 ];

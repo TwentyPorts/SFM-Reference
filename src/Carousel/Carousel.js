@@ -128,7 +128,7 @@ const Carousel = ({ children, tags }) => {
       {filtersContainerVisible ? (
         <div className="filters">
           <div className="tags-container">
-            <span className="filters-title">Filter by Tags</span>
+            <span className="filters-title">- Filter by Tags -</span>
             {tags.current
               ? new Array(...tags.current).map((tagName, index) => {
                   let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");

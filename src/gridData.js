@@ -24,11 +24,11 @@ export const gridData={
       "image": Thumb_Valve_Portraits,
       "desc": "Character portraits made in Valve's iconic style"
     },
-    "POV_Punch":
+    "Scenebuilds":
     {
-      "tag": "POV Punch",
-      "image": Thumb_POV_Punch,
-      "desc": "POV shots of a character punching the viewer with exaggerated perspective"
+      "tag": "Scenebuilds",
+      "image": Thumb_Scenebuilds,
+      "desc": "Scenebuilds that don't focus on characters"
     },
     "Long_Shots":
     {
@@ -66,11 +66,11 @@ export const gridData={
       "image": Thumb_Movie_and_Game_Posters,
       "desc": "Parodies of promotional posters from movies, games, and other forms of media"
     },
-    "Scenebuilds":
+    "POV_Punch":
     {
-      "tag": "Scenebuilds",
-      "image": Thumb_Scenebuilds,
-      "desc": "Scenebuilds that don't focus on characters"
+      "tag": "POV Punch",
+      "image": Thumb_POV_Punch,
+      "desc": "POV shots of a character punching the viewer with exaggerated perspective"
     },
     "JoJo_Approach":
     {

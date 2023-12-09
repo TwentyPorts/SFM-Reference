@@ -1,20 +1,27 @@
 .about-page {
-  padding: 10px 10%;
-  font-size: 2vh;
-  @media (max-width: 500px) {
-    font-size: 1.8vh;
+  padding: 10px 15%;
+  font-size: 2.2vh;
+  @media (max-width: 640px) {
+    padding: 10px 10%;
+    font-size: 2vh;
   }
+  @media (min-width: 1280px) {
+    font-size: 2.4vh;
+  }
+  font-family: serif;
   text-align: center;
   color: #fdf8ed;
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 10vh;
 }
 
 .about-page-header {
   font-size: 4vh;
-  @media (max-width: 500px) {
-    font-size: 3.5vh;
+  @media (max-width: 640px) {
+    font-size: 3vh;
+  }
+  @media (min-width: 1280px) {
+    font-size: 5vh;
   }
   font-weight: bold;
   font-family: sans-serif;
@@ -23,7 +30,12 @@
 
 .about-page-container {
   position: relative;
-  padding: 20px 8px;
+  padding: 25px 20px;
   background-color: #202020;
   border-radius: 12px;
+}
+
+.about-page-avatar {
+  margin-top: 3vh;
+  width: 10vh;
 }

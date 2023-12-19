@@ -13,6 +13,7 @@ import Thumb_Cars from './Assets/Images/Cars/0.jpg';
 import Thumb_Planes from './Assets/Images/Planes/0.jpg';
 import Thumb_Guns from './Assets/Images/Guns/0.jpg';
 import Thumb_Deformed_Mercs from './Assets/Images/Deformed_Mercs/0.jpg';
+import Thumb_Magazines from './Assets/Images/Magazines/0.jpg';
 
 /*
  * gridData's keys use underscores instead of spaces, and correspond to filenames in Assets/Images/ and Carousel/Data
@@ -65,6 +66,12 @@ export const gridData={
       "tag": "Movie and Game Posters",
       "image": Thumb_Movie_and_Game_Posters,
       "desc": "Parodies of promotional posters from movies, games, and other forms of media"
+    },
+    "Magazines":
+    {
+      "tag": "Magazines",
+      "image": Thumb_Magazines,
+      "desc": "Parodies of magazine covers"
     },
     "POV_Punch":
     {

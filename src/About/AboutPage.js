@@ -42,7 +42,7 @@ const AboutPage = () => {
         <br />
         Feedback and contributions are always welcome! Please either email{" "}
         <a href="mailto:oracleofcake@gmail.com">oracleofcake@gmail.com</a>, DM
-        Anyar#0380 on Discord, or make a PR/issue on the <a href="https://github.com/TwentyPorts/SFM-Reference">GitHub repo</a>. If you're adding new images, please make sure that all images are
+        anyar on Discord, or make a PR/issue on the <a href="https://github.com/TwentyPorts/SFM-Reference">GitHub repo</a>. If you're adding new images, please make sure that all images are
         compressed (i.e. no image should be larger than 15 MB), properly
         attributed and categorized.
       </div>

@@ -1,5 +1,5 @@
 .grid-container {
-  font-size: 24px;
+  font-size: 1.8rem;
   font-weight: bold;
   margin-right: -1px;
   margin-top: -1px;
@@ -18,7 +18,7 @@
   @media (max-width: 640px) {
     max-height: 30vh;
   }
-  -webkit-filter: blur(1px);
+  -webkit-filter: blur(1.2px);
 }
 
 .grid-item-tag {

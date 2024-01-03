@@ -1,12 +1,13 @@
 .about-page {
-  padding: 10px 15%;
-  font-size: 2.2vh;
   @media (max-width: 640px) {
-    padding: 10px 10%;
-    font-size: 2vh;
+    padding: 5px 0%;
+    font-size: 1rem;
   }
+  padding: 10px 7%;
+  font-size: 1.2rem;
   @media (min-width: 1280px) {
-    font-size: 2.4vh;
+    padding: 10px 15%;
+    font-size: 1.3rem;
   }
   font-family: serif;
   text-align: center;
@@ -16,12 +17,12 @@
 }
 
 .about-page-header {
-  font-size: 4vh;
   @media (max-width: 640px) {
-    font-size: 3vh;
+    font-size: 1.6rem;
   }
+  font-size: 2.2rem;
   @media (min-width: 1280px) {
-    font-size: 5vh;
+    font-size: 2.4rem;
   }
   font-weight: bold;
   font-family: sans-serif;
@@ -36,6 +37,10 @@
 }
 
 .about-page-avatar {
-  margin-top: 3vh;
+  margin: 3vh 0;
+  @media (max-width: 640px) {
+    margin: 1.5vh 0;
+  }
   width: 10vh;
+  border-radius: 50%;
 }

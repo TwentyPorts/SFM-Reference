@@ -20,9 +20,9 @@
 .carousel-item-author {
   color: #a89368;
   @media (min-width: 640px) {
-    font-size: 3em;
+    font-size: 3rem;
   }
-  font-size: 1.4em;
+  font-size: 1.4rem;
   margin: 7px 0;
   text-decoration: none;
   font-weight: bold;
@@ -34,9 +34,9 @@
 .carousel-item-tags {
   color: #a89368;
   @media (min-width: 640px) {
-    font-size: 1em;
+    font-size: 1rem;
   }
-  font-size: 0.7em;
+  font-size: 0.7rem;
   margin: 0 0 10px;
   text-decoration: none;
 }
@@ -93,11 +93,11 @@ body,html {
 ul .MuiPaginationItem-root {
   background-color: #b9b5af;
   @media (max-width: 640px) {
-    font-size: 12px;
+    font-size: 0.7rem;
     min-width: 25px;
     height: 25px;
   }
-  font-size: 16px;
+  font-size: 1.1rem;
   min-width: 35px;
   height: 35px;
 }
@@ -118,9 +118,9 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 .filters {
   margin: 0 0 5px;
   color: #a89368;
-  font-size: 1.2em;
+  font-size: 1.2rem;
   @media (max-width: 640px) {
-    font-size: 1em;
+    font-size: 0.8rem;
   }
   text-decoration: none;
   font-weight: bold;
@@ -154,10 +154,10 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   cursor: pointer;
   display: inline-block;
   font-family: sans-serif;
-  font-size: 14px;
+  font-size: 1rem;
   padding: 6px 16px;
   @media (max-width: 640px) {
-    font-size: 11px;
+    font-size: 0.6rem;
     padding: 3px 8px;
   }
   font-weight: 600;

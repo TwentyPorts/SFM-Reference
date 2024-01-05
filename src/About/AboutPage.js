@@ -20,7 +20,7 @@ const AboutPage = () => {
       <div className="about-page-container">
         <div className="about-page-header">SFM Reference</div>
         <br />
-        ...is a categorized repository of artwork made using{" "}
+        ...is a categorized repository of artwork* made using{" "}
         <a
           href="https://store.steampowered.com/app/1840/Source_Filmmaker/"
           target="_blank"
@@ -33,20 +33,13 @@ const AboutPage = () => {
         creating something interesting.
         <br />
         <br />
-        You can navigate the image slideshows with Left Arrow, Right Arrow, and
-        Enter. On mobile, you can swipe left or right.
-        <br />
-        <br />
         Currently, this website has <u>{numImages}</u> unique images.
         <br />
         <br />
-        All images are publicly available, community-created artwork and
-        attributed to their original authors wherever possible (which means that
-        I do not claim ownership over any of the art being shown).
-        <br />
-        <br />
-        All hosted images have, when necessary, been compressed to high-quality
-        JPGs to reduce file size.
+        <em>Tip: On desktop, you can navigate the image slideshows with Left Arrow for previous, and Right Arrow or
+        Enter for next.
+        <br/>
+        On mobile, you can swipe left or right.</em>
         <br />
         <br />
         Feedback and contributions are always welcome! Please either email{" "}
@@ -62,6 +55,12 @@ const AboutPage = () => {
         . If you're adding new images, please make sure that all images are
         compressed (i.e. no image should be larger than 15 MB), properly
         attributed and categorized.
+        <p className="about-page-disclaimer">*Note: All images are publicly available, community-created artwork and
+        attributed to their original authors wherever possible (which means that
+        I do not claim ownership over any of the art being shown).
+        <br/>
+        All hosted images have, when necessary, been compressed to high-quality
+        JPGs to reduce file size.</p>
       </div>
       <img
         src={About_Avatar}

@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import LinkIcon from '@mui/icons-material/Link';
 import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
@@ -55,6 +56,17 @@ function DefaultNavbar() {
                   {page}
                 </Button>
               ))}
+              <Button
+                key="github-link"
+                sx={{ ml: 2, my: 2, color: '#fff', display: 'flex' }}
+                component="a"
+                href="https://github.com/TwentyPorts/SFM-Reference"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GITHUB&nbsp;<LinkIcon />
+              </Button>
+              
             </Box>
           </Toolbar>
         </Container>

@@ -1,7 +1,7 @@
 import "./AboutPage.scss";
 import { gridData } from "../gridData.js";
 import React, { useState } from "react";
-import About_Avatar from "../Assets/Images/About_Avatar.jpg"
+import About_Avatar from "../Assets/Images/About_Avatar.jpg";
 
 const AboutPage = () => {
   const [numImages, setNumImages] = useState(-1);
@@ -20,12 +20,21 @@ const AboutPage = () => {
       <div className="about-page-container">
         <div className="about-page-header">SFM Reference</div>
         <br />
-        ...is a categorized repository of artwork made using <a href="https://store.steampowered.com/app/1840/Source_Filmmaker/">Source Filmmaker</a>, meant to serve as a point of reference or inspiration for SFM
-        artists. More informally, it's a personal project to learn about
-        React while creating something interesting.
+        ...is a categorized repository of artwork made using{" "}
+        <a
+          href="https://store.steampowered.com/app/1840/Source_Filmmaker/"
+          target="_blank"
+          rel="noopenner noreferrer"
+        >
+          Source Filmmaker
+        </a>
+        , meant to serve as a point of reference or inspiration for SFM artists.
+        More informally, it's a personal project to learn about React while
+        creating something interesting.
         <br />
         <br />
-        You can navigate the image slideshows with Left Arrow, Right Arrow, and Enter. On mobile, you can swipe left or right.
+        You can navigate the image slideshows with Left Arrow, Right Arrow, and
+        Enter. On mobile, you can swipe left or right.
         <br />
         <br />
         Currently, this website has <u>{numImages}</u> unique images.
@@ -36,17 +45,29 @@ const AboutPage = () => {
         I do not claim ownership over any of the art being shown).
         <br />
         <br />
-        All hosted images have, when necessary, been compressed to high-quality JPGs to reduce
-        file size.
+        All hosted images have, when necessary, been compressed to high-quality
+        JPGs to reduce file size.
         <br />
         <br />
         Feedback and contributions are always welcome! Please either email{" "}
         <a href="mailto:oracleofcake@gmail.com">oracleofcake@gmail.com</a>, DM
-        anyar on Discord, or make a PR/issue on the <a href="https://github.com/TwentyPorts/SFM-Reference">GitHub repo</a>. If you're adding new images, please make sure that all images are
+        anyar on Discord, or make a PR/issue on the{" "}
+        <a
+          href="https://github.com/TwentyPorts/SFM-Reference"
+          target="_blank"
+          rel="noopenner noreferrer"
+        >
+          GitHub repo
+        </a>
+        . If you're adding new images, please make sure that all images are
         compressed (i.e. no image should be larger than 15 MB), properly
         attributed and categorized.
       </div>
-      <img src={About_Avatar} className="about-page-avatar" alt="anyar_avatar"></img>
+      <img
+        src={About_Avatar}
+        className="about-page-avatar"
+        alt="anyar_avatar"
+      ></img>
     </div>
   );
 };

@@ -21,7 +21,7 @@ function GridItem(props) {
     <Grid className="grid-container" item xs="auto">
       <div className={"grid-item grid-item-" + props.tag.replace(/\s+/g, "")}>
         <img
-          alt="thumb"
+          alt={"thumbnail for category " + props.tag}
           className="grid-item-image"
           title={props.desc}
           src={props.image}

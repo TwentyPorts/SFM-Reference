@@ -66,7 +66,7 @@ const AboutPage = () => {
       <img
         src={About_Avatar}
         className="about-page-avatar"
-        alt="anyar_avatar"
+        alt="anyar avatar"
       ></img>
     </div>
   );

@@ -31,7 +31,7 @@ const CarouselWrapper = () => {
               <div className="carousel-item-image-wrapper">
                 <img
                   className="carousel-item-image"
-                  alt=""
+                  alt={"artwork " + index}
                   src={require("../Assets/Images/" +
                     category +
                     "/" +

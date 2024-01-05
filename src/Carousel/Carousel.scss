@@ -120,7 +120,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   color: #a89368;
   font-size: 1.2rem;
   @media (max-width: 640px) {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
   text-decoration: none;
   font-weight: bold;
@@ -145,19 +145,19 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 
 .tag-button {
   appearance: none;
-  background-color: #534933;
+  background-color: #685b3f;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0 inset;
   box-sizing: border-box;
-  color: #000000;
+  color: black;
   cursor: pointer;
   display: inline-block;
   font-family: sans-serif;
   font-size: 1rem;
   padding: 6px 16px;
   @media (max-width: 640px) {
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     padding: 3px 8px;
   }
   font-weight: 600;
@@ -177,7 +177,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 }
 
 .tag-button:disabled {
-  background-color: #534933;
+  background-color: #685b3f;
   border-color: rgba(27, 31, 35, 0.15);
   color: #959DA5;
   cursor: default;
@@ -220,4 +220,8 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0 inset;
+}
+
+.filters-toggle-button:hover {
+  background-color: #dabe86;
 }

@@ -1,4 +1,5 @@
 $sfm-brown: #a89368;
+$sfm-light-brown: #bda474;
 
 .carousel {
   overflow: hidden;
@@ -139,7 +140,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 }
 
 .tags-container {
-  background-color: $sfm-brown;
+  background-color: $sfm-light-brown;
   width: fit-content;
   padding: 7px;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -218,7 +219,7 @@ $tag-button-base-color: #685b3f;
   flex-basis: 100%;
   width: 0;
   justify-content: center;
-  background-color: $sfm-brown;
+  background-color: $sfm-light-brown;
   color: rgb(31, 31, 31);
   font-family: sans-serif;
 }
@@ -232,7 +233,7 @@ $tag-button-base-color: #685b3f;
 .filters-toggle-button {
   display: flex;
   align-items: center;
-  background-color: $sfm-brown;
+  background-color: $sfm-light-brown;
   height: 75%;
   cursor: pointer;
   border: 1px solid rgba(27, 31, 35, 0.15);

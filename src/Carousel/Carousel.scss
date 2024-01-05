@@ -1,3 +1,5 @@
+$sfm-brown: #a89368;
+
 .carousel {
   overflow: hidden;
   font-family: sans-serif;
@@ -18,7 +20,7 @@
 }
 
 .carousel-item-author {
-  color: #a89368;
+  color: $sfm-brown;
   @media (min-width: 640px) {
     font-size: 3rem;
   }
@@ -32,7 +34,7 @@
 }
 
 .carousel-item-tags {
-  color: #a89368;
+  color: $sfm-brown;
   @media (min-width: 640px) {
     font-size: 1rem;
   }
@@ -102,6 +104,13 @@ ul .MuiPaginationItem-root {
   height: 35px;
 }
 
+.MuiPagination-root {
+  @media (max-width: 640px) {
+    margin-bottom: 6px;
+  }
+  margin-bottom: 10px;
+}
+
 ul .MuiPaginationItem-root:hover {
   background-color: #fdf8ed;
 }
@@ -117,7 +126,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 
 .filters {
   margin: 0 0 5px;
-  color: #a89368;
+  color: $sfm-brown;
   font-size: 1.2rem;
   @media (max-width: 640px) {
     font-size: 0.9rem;
@@ -130,7 +139,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 }
 
 .tags-container {
-  background-color: #bea676;
+  background-color: $sfm-brown;
   width: fit-content;
   padding: 7px;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -143,9 +152,11 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   flex-wrap: wrap;
 }
 
+$tag-button-base-color: #685b3f;
+
 .tag-button {
   appearance: none;
-  background-color: #685b3f;
+  background-color: $tag-button-base-color;
   border: 1px solid rgba(27, 31, 35, 0.15);
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0 inset;
@@ -171,23 +182,31 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 }
 
 .tag-button:hover {
-  background-color: #a89368;
+  filter: brightness(150%);
   text-decoration: none;
   transition-duration: 0.1s;
 }
 
-.tag-button:disabled {
-  background-color: #685b3f;
-  border-color: rgba(27, 31, 35, 0.15);
-  color: #959DA5;
-  cursor: default;
+.tag-button:active {
+  filter: brightness(190%);
 }
 
 .tag-button-active {
   border: 1px solid rgba(27, 31, 35, 0.356);
-  background-color: #e2c68e;
+  filter: brightness(190%);
   box-shadow: rgba(225, 228, 232, 0.2) 0 1px 0 inset;
   transition: none 0s;
+}
+
+.tag-button-active:hover {
+  filter: brightness(210%);
+}
+
+.tag-button:disabled {
+  background-color: $tag-button-base-color;
+  border-color: rgba(27, 31, 35, 0.15);
+  color: #959DA5;
+  cursor: default;
 }
 
 .tag-button:before {
@@ -199,7 +218,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
   flex-basis: 100%;
   width: 0;
   justify-content: center;
-  background-color: #bea676;
+  background-color: $sfm-brown;
   color: rgb(31, 31, 31);
   font-family: sans-serif;
 }
@@ -213,7 +232,7 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 .filters-toggle-button {
   display: flex;
   align-items: center;
-  background-color: #bea676;
+  background-color: $sfm-brown;
   height: 75%;
   cursor: pointer;
   border: 1px solid rgba(27, 31, 35, 0.15);
@@ -223,5 +242,5 @@ ul .MuiPaginationItem-root.Mui-selected:hover {
 }
 
 .filters-toggle-button:hover {
-  background-color: #dabe86;
+  filter: brightness(120%);
 }

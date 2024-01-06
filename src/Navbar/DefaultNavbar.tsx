@@ -28,12 +28,12 @@ function DefaultNavbar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <img
-              height="25px"
+              height={window.innerWidth <= 600 ? "25px" : "30px"}
               src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/64b3ec1fdfacead70c3a9bd77d824306/32/512x512.png"
               alt="sfm logo"
             ></img>
             <Typography
-              variant="h6"
+              variant={window.innerWidth <= 600 ? "h6" : "h5"}
               noWrap
               component="a"
               href="/SFM-Reference/"
@@ -42,18 +42,29 @@ function DefaultNavbar() {
                 display: 'flex',
                 fontFamily: 'sans-serif',
                 fontWeight: 700,
-                color: '#fff',
+                color: '#eee',
                 textDecoration: 'none',
+                letterSpacing: '0.5px',
+                overflow: 'visible',
+                '@media (max-width: 600px)': {
+                  mr: 2,
+                  letterSpacing: '0.2px',
+                },
               }}
             >
               &nbsp;SFM Reference
             </Typography>
 
-            <Box sx={{ flexGrow: 1, display: 'flex'}}>
+            <Box sx={{ flexGrow: 1, display: 'flex' }}>
               {pages.map((page) => (
                 <Button
                   key={page}
-                  sx={{ my: 2, color: '#fff', display: 'block' }}
+                  sx={{
+                    my: 2, color: '#fff', display: 'block', '@media (max-width: 600px)': {
+                      paddingLeft: 0,
+                      paddingRight: 0,
+                    },
+                  }}
                   component={Link}
                   to={page}
                 >
@@ -62,7 +73,13 @@ function DefaultNavbar() {
               ))}
               <Button
                 key="github-link"
-                sx={{ ml: 2, my: 2, color: '#fff', display: 'flex' }}
+                sx={{
+                  ml: 2, my: 2, color: '#fff', display: 'flex', '@media (max-width: 600px)': {
+                    ml: 0,
+                    paddingLeft: 0,
+                    paddingRight: 0,
+                  },
+                }}
                 component="a"
                 href="https://github.com/TwentyPorts/SFM-Reference"
                 target="_blank"
@@ -70,7 +87,7 @@ function DefaultNavbar() {
               >
                 GITHUB&nbsp;<LinkIcon />
               </Button>
-              
+
             </Box>
           </Toolbar>
         </Container>

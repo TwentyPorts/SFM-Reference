@@ -103,8 +103,10 @@ const Carousel = ({ children, tags }) => {
     let images = [];
     React.Children.map(children, (child, index) => {
       let childTags = "";
-      if(child.props.children[2].props.children) {
-        childTags = child.props.children[2].props.children.substring(8).split(", ");
+      if (child.props.children[2].props.children) {
+        childTags = child.props.children[2].props.children
+          .substring(8)
+          .split(", ");
       }
       if (
         filters.length === 0 ||
@@ -114,7 +116,7 @@ const Carousel = ({ children, tags }) => {
       }
     });
     setCarouselItems(images);
-    if(images.length !== 0 && activeIndex > images.length - 1) {
+    if (images.length !== 0 && activeIndex > images.length - 1) {
       updateIndex(null, images.length);
     }
   }
@@ -125,39 +127,49 @@ const Carousel = ({ children, tags }) => {
 
   return (
     <div {...handlers} className="carousel">
-      
-      <div className="filters">
-        <div className="tags-container" style={{display: filtersContainerVisible ? 'flex' : 'none'}}>
-          <span className="filters-title">- Filter by Tags -</span>
-          {tags.current
-            ? new Array(...tags.current).map((tagName, index) => {
-                let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
-                return (
-                  <div
-                    className={
-                      "tag-button tag-button-" + tagNameWithoutSpaces
-                    }
-                    role="button"
-                    onClick={() => updateFilters(tagName)}
-                    key={index}
-                  >
-                    {tagName}
-                  </div>
-                );
-              })
-            : null}
-        </div>
-        
-        <div className="filters-toggle-container">
-          <button
-            className="filters-toggle-button"
-            onClick={toggleFiltersContainer}
+      {tags.current && tags.current.size > 0 ? (
+        <div className="filters">
+          <div
+            className="tags-container"
+            style={{ display: filtersContainerVisible ? "flex" : "none" }}
           >
-            {filtersContainerVisible ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </button>
+            <span className="filters-title">- Filter by Tags -</span>
+            {tags.current
+              ? new Array(...tags.current).map((tagName, index) => {
+                  let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
+                  return (
+                    <div
+                      className={
+                        "tag-button tag-button-" + tagNameWithoutSpaces
+                      }
+                      role="button"
+                      onClick={() => updateFilters(tagName)}
+                      key={index}
+                    >
+                      {tagName}
+                    </div>
+                  );
+                })
+              : null}
+          </div>
+
+          <div className="filters-toggle-container">
+            <button
+              className="filters-toggle-button"
+              onClick={toggleFiltersContainer}
+            >
+              {filtersContainerVisible ? (
+                <KeyboardArrowUpIcon />
+              ) : (
+                <KeyboardArrowDownIcon />
+              )}
+            </button>
+          </div>
         </div>
-      </div>
-      
+      ) : (
+        null
+      )}
+
       <div className="indicators-mobile">
         <Pagination
           count={carouselItems ? carouselItemsLength : 0}

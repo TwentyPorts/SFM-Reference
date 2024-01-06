@@ -26,7 +26,6 @@ const Carousel = ({ children, tags }) => {
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
-  const [mobile, setMobile] = useState(window.innerWidth <= 500);
   let carouselItemsLength = carouselItems ? carouselItems.length : 0;
   useEffect(() => {
     // console.log("effect used");
@@ -38,7 +37,7 @@ const Carousel = ({ children, tags }) => {
     return () => {
       document.removeEventListener("keydown", keyPress);
     };
-  }, [activeIndex, childrenCount, carouselItemsLength]);
+  }, [activeIndex, childrenCount, carouselItemsLength, filtersContainerVisible]);
 
   // Update index of image to display
   const updateIndex = (e, p) => {
@@ -73,6 +72,9 @@ const Carousel = ({ children, tags }) => {
     }
     if (e.key === "ArrowLeft") {
       updateIndex(null, activeIndex);
+    }
+    if (e.key === "f") {
+      toggleFiltersContainer();
     }
   }
 

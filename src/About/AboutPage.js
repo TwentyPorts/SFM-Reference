@@ -36,8 +36,8 @@ const AboutPage = () => {
         Currently, this website has <u>{numImages}</u> unique images.
         <br />
         <br />
-        <em>Tip: On desktop, you can navigate the image slideshows with Left Arrow for previous, and Right Arrow or
-        Enter for next.
+        <em>Tip: On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
+        and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
         <br/>
         On mobile, you can swipe left or right.</em>
         <br />

@@ -28,6 +28,7 @@ function DefaultNavbar() {
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <img
+              width={window.innerWidth <= 600 ? "25px" : "30px"}
               height={window.innerWidth <= 600 ? "25px" : "30px"}
               src="https://cdn2.steamgriddb.com/file/sgdb-cdn/icon/64b3ec1fdfacead70c3a9bd77d824306/32/512x512.png"
               alt="sfm logo"

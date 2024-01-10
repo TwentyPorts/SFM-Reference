@@ -17,6 +17,10 @@ const theme = createTheme({
 });
 
 function GridItem(props) {
+  function restoreOriginalDimensions(e) {
+    e.target.removeAttribute("width");
+    e.target.removeAttribute("height");
+  }
   return (
     <Grid className="grid-container" item xs="auto">
       <div className={"grid-item grid-item-" + props.tag.replace(/\s+/g, "")}>
@@ -26,6 +30,9 @@ function GridItem(props) {
           title={props.desc}
           src={props.image}
           onClick={props.onClick}
+          onLoad={restoreOriginalDimensions}
+          height={window.innerWidth <= 600 ? "100px" : "200px"}
+          width={window.innerWidth <= 600 ? "100px" : "200px"}
         ></img>
         <div className="grid-item-tag" onClick={props.onTagClick}>
           {props.tag}

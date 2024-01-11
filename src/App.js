@@ -5,12 +5,13 @@ import AboutPage from "./About/AboutPage";
 import DefaultNavbar from "./Navbar/DefaultNavbar.tsx";
 
 const App = () => {
-  console.log("App rendered");
+  //console.log("App rendered");
   return (
     <>
       <DefaultNavbar></DefaultNavbar>
       <Routes>
         <Route path="/" element={<GridView />} />
+        <Route path="/Home" element={<GridView />} />
         <Route path="/Category/:category" element={<CarouselWrapper />} />
         <Route path="/About" element={<AboutPage />} />
       </Routes>

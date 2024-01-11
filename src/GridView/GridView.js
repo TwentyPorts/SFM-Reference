@@ -34,8 +34,8 @@ function GridItem(props) {
           height={window.innerWidth <= 600 ? "100px" : "200px"}
           width={window.innerWidth <= 600 ? "100px" : "200px"}
         ></img>
-        <div className="grid-item-tag" onClick={props.onTagClick}>
-          {props.tag}
+        <div className="grid-item-tag">
+          <span className="grid-item-tag-text" onClick={props.onTagClick}>{props.tag}</span>
         </div>
       </div>
     </Grid>
@@ -58,7 +58,8 @@ class GridView extends React.Component {
   }
 
   // Show description message box for a category
-  showCategoryInfo(tag, desc) {
+  showCategoryInfo(e, tag, desc) {
+    e.stopPropagation();
     this.setState((prevState) => {
       return {
         ...prevState,
@@ -97,8 +98,9 @@ class GridView extends React.Component {
         image={this.state.gridData[category].image}
         desc={this.state.gridData[category].desc}
         onClick={() => this.handleClick(category)}
-        onTagClick={() =>
+        onTagClick={(e) =>
           this.showCategoryInfo(
+            e,
             this.state.gridData[category].tag,
             this.state.gridData[category].desc
           )

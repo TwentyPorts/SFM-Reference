@@ -22,16 +22,21 @@
 }
 
 .grid-item-tag {
-  cursor: help;
   position: absolute;
   margin: auto;
   inset: 0;
   height: fit-content;
   width: 100%;
+  pointer-events: none;
+}
+
+.grid-item-tag-text {
+  cursor: help;
   color: white;
   -webkit-text-stroke-width: 0.5px;
   -webkit-text-stroke-color: black;
   text-shadow: #474747 1px 1px 1px;
+  pointer-events: auto;
 }
 
 .grid-alert {

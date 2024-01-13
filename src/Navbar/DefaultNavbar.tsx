@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 
-const pages = ['Home', 'About'];
+const pages = ['Home', 'About', 'Submit'];
 
 const darkTheme = createTheme({
   palette: {

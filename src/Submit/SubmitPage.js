@@ -3,6 +3,14 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Button from "@mui/material/Button";
+
+const theme = createTheme({
+  palette: {
+    type: "light",
+  },
+});
 
 const SubmitPage = () => {
   document.title = "Submit Images - SFM Reference";
@@ -22,20 +30,30 @@ const SubmitPage = () => {
       sx={{ minHeight: "100vh" }}
       className="submit-page"
     >
-      <FormControl>
-        <TextField
-          id="submit-page-input-author"
-          label="Author"
-          value={formData.name}
-          onChange={handleChange}
-        />
-        <TextField
-          id="submit-page-input-url"
-          label="URL"
-          value={formData.url}
-          onChange={handleChange}
-        />
-      </FormControl>
+      <ThemeProvider theme={theme}>
+        <FormControl>
+          <TextField
+            id="submit-page-input-author"
+            label="Author"
+            value={formData.name}
+            onChange={handleChange}
+            sx={{ backgroundColor: "#ffffff" }}
+          />
+          <TextField
+            id="submit-page-input-url"
+            label="URL"
+            value={formData.url}
+            onChange={handleChange}
+            sx={{ backgroundColor: "#ffffff" }}
+          />
+          <Button
+            type="submit"
+            className="submit-page-button"
+          >
+            Submit
+          </Button>
+        </FormControl>
+      </ThemeProvider>
     </Grid>
   );
 };

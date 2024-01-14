@@ -1,38 +1,42 @@
 import "./SubmitPage.scss";
-import React, { useState } from "react";
+import React from "react";
+import Grid from "@mui/material/Grid";
+import FormControl from "@mui/material/FormControl";
+import TextField from "@mui/material/TextField";
 
 const SubmitPage = () => {
   document.title = "Submit Images - SFM Reference";
-  const [formData, setFormData] = useState({
-    name: ""
-  });
+  const [formData, setFormData] = React.useState("");
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   return (
-    <div className="submit-page">
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      sx={{ minHeight: "100vh" }}
+      className="submit-page"
+    >
+      <FormControl>
+        <TextField
+          id="submit-page-input-author"
+          label="Author"
           value={formData.name}
           onChange={handleChange}
         />
-
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        <TextField
+          id="submit-page-input-url"
+          label="URL"
+          value={formData.url}
+          onChange={handleChange}
+        />
+      </FormControl>
+    </Grid>
   );
 };
 

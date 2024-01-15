@@ -19,6 +19,16 @@ const SubmitPage = () => {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+    if (event.target.id.includes("url")) {
+      try {
+        const fccUrl = new URL(event.target.value);
+        setErrorMessage("");
+      } catch (e) {
+        if(e instanceof TypeError) {
+          setErrorMessage("Invalid URL");
+        }
+      }
+    }
   };
 
   return (
@@ -34,6 +44,7 @@ const SubmitPage = () => {
       <ThemeProvider theme={theme}>
         <FormControl>
           <TextField
+            required
             id="submit-page-input-author"
             label="Author"
             value={formData.name}
@@ -42,16 +53,14 @@ const SubmitPage = () => {
           />
           <TextField
             id="submit-page-input-url"
-            label="URL"
+            label="Source URL"
             value={formData.url}
             onChange={handleChange}
+            error={errorMessage !== ""}
             helperText={errorMessage}
             sx={{ backgroundColor: "#ffffff" }}
           />
-          <Button
-            type="submit"
-            className="submit-page-button"
-          >
+          <Button type="submit" className="submit-page-button">
             Submit
           </Button>
         </FormControl>

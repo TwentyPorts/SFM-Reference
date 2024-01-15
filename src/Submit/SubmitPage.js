@@ -15,6 +15,7 @@ const theme = createTheme({
 const SubmitPage = () => {
   document.title = "Submit Images - SFM Reference";
   const [formData, setFormData] = React.useState("");
+  const [errorMessage, setErrorMessage] = React.useState("");
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
@@ -44,6 +45,7 @@ const SubmitPage = () => {
             label="URL"
             value={formData.url}
             onChange={handleChange}
+            helperText={errorMessage}
             sx={{ backgroundColor: "#ffffff" }}
           />
           <Button

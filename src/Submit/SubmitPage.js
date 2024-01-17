@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+import Divider from '@mui/material/Divider';
 import { gridData } from "../gridData.js";
 
 const theme = createTheme({
@@ -54,7 +55,7 @@ const SubmitPage = () => {
       sx={{ minHeight: "80vh" }}
       className="submit-page"
     >
-      <h1 className="submit-page-title">Submit your artwork to the website!</h1>
+      <h1 className="submit-page-title">Submit* your artwork to the website!</h1>
       <ThemeProvider theme={theme}>
         <FormControl>
           <div className="submit-page-form-container">
@@ -113,6 +114,9 @@ const SubmitPage = () => {
           </div>
         </FormControl>
       </ThemeProvider>
+      <Divider flexItem variant="middle" sx={{ alignSelf: "auto", width: "50%", mt: "1.5em", bgcolor: "rgb(50, 50, 50)" }} />
+      <h5 className="submit-page-subtitle">*All submissions will be manually reviewed and will only be added if they clearly fit into an existing category on the website, are safe for work, and are sufficiently high quality. Generally, that means demonstrating solid poster fundamentals such as good lighting, posing, and/or composition, though the specifics will differ on a case-by-case basis. <br /><br />
+      This is solely intended to maintain an admittedly subjective level of quality on SFM Reference. If you would like feedback on your pieces, places like the SFM Discord or r/SFM are good places to start.</h5>
     </Grid>
   );
 };

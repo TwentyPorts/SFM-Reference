@@ -5,7 +5,6 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
-import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import { gridData } from "../gridData.js";
 
@@ -23,14 +22,18 @@ const theme = createTheme({
 
 const SubmitPage = () => {
   document.title = "Submit Images - SFM Reference";
-  const [formData, setFormData] = React.useState("");
+  const [formData, setFormData] = React.useState({
+    author: "",
+    url: "",
+    category: "",
+  });
   const [errorMessage, setErrorMessage] = React.useState("");
 
-  const handleChange = (event) => {
-    setFormData({ ...formData, [event.target.name]: event.target.value });
+  const handleChange = (event, property) => {
+    setFormData({ ...formData, [property]: event.target.value });
 
     // check for invalid url
-    if (event.target.id.includes("url")) {
+    if (event.target.id && event.target.id.includes("url")) {
       try {
         const fccUrl = new URL(event.target.value);
         setErrorMessage("");
@@ -52,7 +55,7 @@ const SubmitPage = () => {
       sx={{ minHeight: "100vh" }}
       className="submit-page"
     >
-      <h1 className="submit-page-title">Submit your images to the website!</h1>
+      <h1 className="submit-page-title">Submit your artwork to the website!</h1>
       <ThemeProvider theme={theme}>
         <FormControl>
           <TextField
@@ -60,35 +63,42 @@ const SubmitPage = () => {
             id="submit-page-input-author"
             label="Author"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, "author")}
           />
           <TextField
             id="submit-page-input-url"
             label="Source URL"
             value={formData.url}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, "url")}
             error={errorMessage !== ""}
             helperText={errorMessage}
           />
-          <label for="files">
-            <Button>Select Image(s)</Button>
+          <label htmlFor="files">
+            <Button>Select Image</Button>
           </label>
           <input
+            required
             id="files"
             type="file"
             accept="image/png, image/jpeg"
             multiple={true}
             style={{ display: "none" }}
           />
-          <Select
+          <TextField
+            required
+            select
+            defaultValue=""
+            id="submit-page-select"
             value={formData.category}
             label="Category"
-            onChange={handleChange}
+            onChange={(e) => handleChange(e, "category")}
           >
-            {Object.keys(gridData).map((key) => (
-              <MenuItem value={key}>{gridData[key].tag}</MenuItem>
+            {Object.values(gridData).map((value) => (
+              <MenuItem key={value.tag} value={value.tag}>
+                {value.tag}
+              </MenuItem>
             ))}
-          </Select>
+          </TextField>
           <Button variant="contained" type="submit">
             Submit
           </Button>

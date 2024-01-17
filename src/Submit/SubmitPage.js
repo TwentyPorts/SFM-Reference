@@ -5,10 +5,19 @@ import FormControl from "@mui/material/FormControl";
 import TextField from "@mui/material/TextField";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import { gridData } from "../gridData.js";
 
 const theme = createTheme({
   palette: {
-    type: "light",
+    mode: "dark",
+    primary: {
+      main: "#fff",
+    },
+    secondary: {
+      main: "#a89368",
+    },
   },
 });
 
@@ -19,12 +28,14 @@ const SubmitPage = () => {
 
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
+
+    // check for invalid url
     if (event.target.id.includes("url")) {
       try {
         const fccUrl = new URL(event.target.value);
         setErrorMessage("");
       } catch (e) {
-        if(e instanceof TypeError) {
+        if (e instanceof TypeError) {
           setErrorMessage("Invalid URL");
         }
       }
@@ -41,6 +52,7 @@ const SubmitPage = () => {
       sx={{ minHeight: "100vh" }}
       className="submit-page"
     >
+      <h1 className="submit-page-title">Submit your images to the website!</h1>
       <ThemeProvider theme={theme}>
         <FormControl>
           <TextField
@@ -49,7 +61,6 @@ const SubmitPage = () => {
             label="Author"
             value={formData.name}
             onChange={handleChange}
-            sx={{ backgroundColor: "#ffffff" }}
           />
           <TextField
             id="submit-page-input-url"
@@ -58,9 +69,27 @@ const SubmitPage = () => {
             onChange={handleChange}
             error={errorMessage !== ""}
             helperText={errorMessage}
-            sx={{ backgroundColor: "#ffffff" }}
           />
-          <Button type="submit" className="submit-page-button">
+          <label for="files">
+            <Button>Select Image(s)</Button>
+          </label>
+          <input
+            id="files"
+            type="file"
+            accept="image/png, image/jpeg"
+            multiple={true}
+            style={{ display: "none" }}
+          />
+          <Select
+            value={formData.category}
+            label="Category"
+            onChange={handleChange}
+          >
+            {Object.keys(gridData).map((key) => (
+              <MenuItem value={key}>{gridData[key].tag}</MenuItem>
+            ))}
+          </Select>
+          <Button variant="contained" type="submit">
             Submit
           </Button>
         </FormControl>

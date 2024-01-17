@@ -2,3 +2,20 @@
     color: white;
     font-family: monospace, sans-serif;
 }
+
+.submit-page-upload-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: 10em;
+    height: 10em;
+    margin: auto;
+    border: 1px solid white;
+}
+
+.submit-page-upload-image-text {
+    font-family: monospace, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}

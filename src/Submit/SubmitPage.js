@@ -74,7 +74,11 @@ const SubmitPage = () => {
             helperText={errorMessage}
           />
           <label htmlFor="files">
-            <Button>Select Image</Button>
+            <div className="submit-page-upload-image-container">
+              <p className="submit-page-upload-image-text">
+                Select Image or Drag and Drop
+              </p>
+            </div>
           </label>
           <input
             required

@@ -48,64 +48,66 @@ const SubmitPage = () => {
   return (
     <Grid
       container
-      spacing={0}
       direction="column"
       alignItems="center"
       justifyContent="center"
-      sx={{ minHeight: "100vh" }}
+      sx={{ minHeight: "80vh" }}
       className="submit-page"
     >
       <h1 className="submit-page-title">Submit your artwork to the website!</h1>
       <ThemeProvider theme={theme}>
         <FormControl>
-          <TextField
-            required
-            id="submit-page-input-author"
-            label="Author"
-            value={formData.name}
-            onChange={(e) => handleChange(e, "author")}
-          />
-          <TextField
-            id="submit-page-input-url"
-            label="Source URL"
-            value={formData.url}
-            onChange={(e) => handleChange(e, "url")}
-            error={errorMessage !== ""}
-            helperText={errorMessage}
-          />
-          <label htmlFor="files">
-            <div className="submit-page-upload-image-container">
-              <p className="submit-page-upload-image-text">
-                Select Image or Drag and Drop
-              </p>
-            </div>
-          </label>
-          <input
-            required
-            id="files"
-            type="file"
-            accept="image/png, image/jpeg"
-            multiple={true}
-            style={{ display: "none" }}
-          />
-          <TextField
-            required
-            select
-            defaultValue=""
-            id="submit-page-select"
-            value={formData.category}
-            label="Category"
-            onChange={(e) => handleChange(e, "category")}
-          >
-            {Object.values(gridData).map((value) => (
-              <MenuItem key={value.tag} value={value.tag}>
-                {value.tag}
-              </MenuItem>
-            ))}
-          </TextField>
-          <Button variant="contained" type="submit">
-            Submit
-          </Button>
+          <div className="submit-page-form-container">
+            <TextField
+              required
+              id="submit-page-input-author"
+              label="Author"
+              value={formData.name}
+              onChange={(e) => handleChange(e, "author")}
+            />
+            <TextField
+              id="submit-page-input-url"
+              label="Source URL"
+              value={formData.url}
+              onChange={(e) => handleChange(e, "url")}
+              error={errorMessage !== ""}
+              helperText={errorMessage}
+            />
+            <label htmlFor="files">
+              <div className="submit-page-upload-image-container">
+                <p className="submit-page-upload-image-text">
+                  Select Image or Drag and Drop
+                </p>
+              </div>
+            </label>
+            <input
+              required
+              id="files"
+              type="file"
+              accept="image/png, image/jpeg"
+              multiple={true}
+              style={{ display: "none" }}
+            />
+            <TextField
+              required
+              select
+              fullWidth
+              defaultValue=""
+              id="submit-page-select"
+              value={formData.category}
+              label="Category"
+              onChange={(e) => handleChange(e, "category")}
+            >
+              {Object.values(gridData).map((value) => (
+                <MenuItem key={value.tag} value={value.tag}>
+                  {value.tag}
+                </MenuItem>
+              ))}
+            </TextField>
+            <Button variant="contained" type="submit">
+              Submit
+            </Button>
+          </div>
         </FormControl>
       </ThemeProvider>
     </Grid>

@@ -19,3 +19,11 @@
     font-size: 1.5em;
     text-align: center;
 }
+
+.submit-page-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}

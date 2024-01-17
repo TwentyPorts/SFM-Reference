@@ -62,12 +62,14 @@ const SubmitPage = () => {
               required
               id="submit-page-input-author"
               label="Author"
+              title="Name or username of the artist. List multiple authors separated by commas."
               value={formData.name}
               onChange={(e) => handleChange(e, "author")}
             />
             <TextField
               id="submit-page-input-url"
               label="Source URL"
+              title="Direct link to the artwork (e.g. Twitter, Steam, Reddit). Include the https:// prefix."
               value={formData.url}
               onChange={(e) => handleChange(e, "url")}
               error={errorMessage !== ""}
@@ -92,10 +94,11 @@ const SubmitPage = () => {
               required
               select
               fullWidth
-              defaultValue=""
               id="submit-page-select"
-              value={formData.category}
               label="Category"
+              title="Must fit into one existing category."
+              defaultValue=""
+              value={formData.category}
               onChange={(e) => handleChange(e, "category")}
             >
               {Object.values(gridData).map((value) => (

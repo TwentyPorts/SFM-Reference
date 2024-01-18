@@ -1,3 +1,5 @@
+$sfm-brown: #a89368;
+
 .submit-page-title {
     color: white;
     font-family: monospace, sans-serif;
@@ -18,12 +20,20 @@
     height: 10em;
     margin: auto;
     border: 1px solid white;
+    cursor: pointer;
 }
 
 .submit-page-upload-image-text {
     font-family: monospace, sans-serif;
     font-size: 1.5em;
     text-align: center;
+}
+
+.submit-page-upload-image-thumbnail {
+    width: 10em;
+    height: 10em;
+    object-fit: contain;
+    border: 2px solid $sfm-brown;
 }
 
 .submit-page-form-container {

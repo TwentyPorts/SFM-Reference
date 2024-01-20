@@ -119,7 +119,7 @@ const SubmitPage = () => {
       className="submit-page"
     >
       <h1 className="submit-page-title">
-        Submit* your artwork to the website!
+        Submit your artwork to the website!
       </h1>
       <ThemeProvider theme={theme}>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -239,7 +239,7 @@ const SubmitPage = () => {
         }}
       />
       <h5 className="submit-page-subtitle">
-        *All submissions will be manually reviewed and only added if they
+        All submissions will be manually reviewed and only added if they
         clearly fit into an existing category on the website, are safe for work,
         and are sufficiently high quality, though specifics will vary.
         <br />

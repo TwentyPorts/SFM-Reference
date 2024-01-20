@@ -1,8 +1,10 @@
 $sfm-brown: #a89368;
+$image-container-size: 15em;
 
 .submit-page-title {
     color: white;
     font-family: monospace, sans-serif;
+    text-align: center;
 }
 
 .submit-page-subtitle {
@@ -16,8 +18,8 @@ $sfm-brown: #a89368;
     align-items: center;
     justify-content: center;
     color: white;
-    width: 15em;
-    height: 15em;
+    width: $image-container-size;
+    height: $image-container-size;
     margin: auto;
     border: 1px solid white;
     cursor: pointer;
@@ -30,8 +32,8 @@ $sfm-brown: #a89368;
 }
 
 .submit-page-upload-image-thumbnail {
-    width: 15em;
-    height: 15em;
+    width: $image-container-size;
+    height: $image-container-size;
     object-fit: contain;
     border: 2px solid $sfm-brown;
 }

@@ -1,6 +1,7 @@
 {
   "name": "sfm-reference",
   "version": "0.2.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

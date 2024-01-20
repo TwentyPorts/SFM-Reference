@@ -141,16 +141,14 @@ const SubmitPage = () => {
         }}
       />
       <h5 className="submit-page-subtitle">
-        *All submissions will be manually reviewed and will only be added if
-        they clearly fit into an existing category on the website, are safe for
-        work, and are sufficiently high quality. Generally, that means
-        demonstrating solid poster fundamentals such as good lighting, posing,
-        and/or composition, though the specifics will differ on a case-by-case
-        basis. <br />
+        *All submissions will be manually reviewed and only added if they
+        clearly fit into an existing category on the website, are safe for work,
+        and are sufficiently high quality, though specifics will vary.
         <br />
-        This is solely intended to maintain an admittedly subjective level of
-        quality on SFM Reference. If you would like feedback on your pieces,
-        places like the SFM Discord or r/SFM are good places to start.
+        <br />
+        This is solely intended to maintain a subjective level of quality on SFM
+        Reference. If you would like feedback on your pieces, the SFM Discord or
+        r/SFM are good places to start.
       </h5>
     </Grid>
   );

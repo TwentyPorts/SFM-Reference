@@ -1,0 +1,58 @@
+$sfm-brown: #a89368;
+$image-container-size: 15em;
+
+.submit-page-title {
+    color: white;
+    font-family: monospace, sans-serif;
+    text-align: center;
+}
+
+.submit-page-subtitle {
+    color: grey;
+    font-family: sans-serif;
+    width: 50%;
+}
+
+.submit-page-upload-image-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    width: $image-container-size;
+    height: $image-container-size;
+    margin: auto;
+    border: 1px dashed white;
+    cursor: pointer;
+}
+
+.submit-page-upload-image-text {
+    font-family: monospace, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+    pointer-events: none;
+}
+
+.submit-page-upload-image-text-limits {
+    font-size: 0.5em;
+    color: #999;
+}
+
+.submit-page-upload-image-thumbnail {
+    width: $image-container-size;
+    height: $image-container-size;
+    object-fit: contain;
+    border: 2px solid $sfm-brown;
+}
+
+.submit-page-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.submit-page-submitted-text {
+    color: white;
+    font-family: monospace, sans-serif;
+}

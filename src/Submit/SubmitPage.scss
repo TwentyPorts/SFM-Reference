@@ -16,8 +16,8 @@ $sfm-brown: #a89368;
     align-items: center;
     justify-content: center;
     color: white;
-    width: 10em;
-    height: 10em;
+    width: 15em;
+    height: 15em;
     margin: auto;
     border: 1px solid white;
     cursor: pointer;
@@ -30,8 +30,8 @@ $sfm-brown: #a89368;
 }
 
 .submit-page-upload-image-thumbnail {
-    width: 10em;
-    height: 10em;
+    width: 15em;
+    height: 15em;
     object-fit: contain;
     border: 2px solid $sfm-brown;
 }
@@ -42,4 +42,9 @@ $sfm-brown: #a89368;
     align-items: center;
     justify-content: center;
     gap: 1em;
+}
+
+.submit-page-submitted-text {
+    color: white;
+    font-family: monospace, sans-serif;
 }

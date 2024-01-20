@@ -21,7 +21,7 @@ $image-container-size: 15em;
     width: $image-container-size;
     height: $image-container-size;
     margin: auto;
-    border: 1px solid white;
+    border: 1px dashed white;
     cursor: pointer;
 }
 
@@ -29,6 +29,7 @@ $image-container-size: 15em;
     font-family: monospace, sans-serif;
     font-size: 1.5em;
     text-align: center;
+    pointer-events: none;
 }
 
 .submit-page-upload-image-thumbnail {

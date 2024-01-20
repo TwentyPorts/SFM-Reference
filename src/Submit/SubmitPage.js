@@ -18,7 +18,11 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // Initialize Cloud Firestore
 const storage = getStorage(firebaseApp);
 const auth = getAuth();
-signInWithEmailAndPassword(auth, process.env.REACT_APP_EMAIL, process.env.REACT_APP_PASSWORD);
+signInWithEmailAndPassword(
+  auth,
+  process.env.REACT_APP_EMAIL,
+  process.env.REACT_APP_PASSWORD
+);
 
 const theme = createTheme({
   palette: {
@@ -42,6 +46,7 @@ const SubmitPage = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [uploadPercent, setUploadPercent] = useState(0);
+  const [dragEntered, setDragEntered] = useState(false);
 
   const handleChange = (event, property) => {
     setFormData({ ...formData, [property]: event.target.value });
@@ -61,6 +66,12 @@ const SubmitPage = () => {
 
   const handleImageUpload = (event) => {
     setUploadedImage(event.target.files[0]);
+  };
+
+  const handleFileDrop = (event) => {
+    event.preventDefault();
+    setDragEntered(false);
+    setUploadedImage(event.dataTransfer.files[0]);
   };
 
   const handleSubmit = (event) => {
@@ -115,7 +126,16 @@ const SubmitPage = () => {
           <FormControl>
             <div className="submit-page-form-container">
               <label htmlFor="files">
-                <div className="submit-page-upload-image-container">
+                <div
+                  className="submit-page-upload-image-container"
+                  style={{
+                    backgroundColor: dragEntered ? "#333" : "transparent",
+                  }}
+                  onDrop={(e) => handleFileDrop(e)}
+                  onDragOver={(e) => e.preventDefault()}
+                  onDragEnter={() => setDragEntered(true)}
+                  onDragLeave={() => setDragEntered(false)}
+                >
                   {uploadedImage ? (
                     <img
                       alt="thumbnail"
@@ -124,7 +144,7 @@ const SubmitPage = () => {
                     />
                   ) : (
                     <p className="submit-page-upload-image-text">
-                      Select Image
+                      Select Image or Drag and Drop
                     </p>
                   )}
                 </div>

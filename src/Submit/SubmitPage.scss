@@ -32,6 +32,11 @@ $image-container-size: 15em;
     pointer-events: none;
 }
 
+.submit-page-upload-image-text-limits {
+    font-size: 0.5em;
+    color: #999;
+}
+
 .submit-page-upload-image-thumbnail {
     width: $image-container-size;
     height: $image-container-size;

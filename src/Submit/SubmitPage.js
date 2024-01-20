@@ -65,13 +65,46 @@ const SubmitPage = () => {
   };
 
   const handleImageUpload = (event) => {
-    setUploadedImage(event.target.files[0]);
+    const file = event.target.files[0];
+    if (!validateFileType(file)) {
+      alert("Images must be .png, .jpg, or .jpeg.");
+    } else if (!validateFileSize(file)) {
+      alert("Images must be less than 5MB.");
+    } else {
+      setUploadedImage(file);
+    }
   };
 
   const handleFileDrop = (event) => {
     event.preventDefault();
     setDragEntered(false);
-    setUploadedImage(event.dataTransfer.files[0]);
+
+    const file = event.dataTransfer.files[0];
+    if (!validateFileType(file)) {
+      alert("Images must be .png, .jpg, or .jpeg.");
+    } else if (!validateFileSize(file)) {
+      alert("Images must be less than 5MB.");
+    } else {
+      setUploadedImage(file);
+    }
+  };
+
+  const validateFileType = (file) => {
+    if (file.type === "image/png" || file.type === "image/jpeg") {
+      // Accepts .jpg, .jpeg, .png
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  const validateFileSize = (file) => {
+    if (file.size < 5242880) {
+      // 1 MB = 1048576 bytes
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const handleSubmit = (event) => {
@@ -101,8 +134,6 @@ const SubmitPage = () => {
         const percent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-
-        // update progress
         setUploadPercent(percent);
       },
       (err) => console.log(err)
@@ -118,9 +149,7 @@ const SubmitPage = () => {
       sx={{ minHeight: "80vh" }}
       className="submit-page"
     >
-      <h1 className="submit-page-title">
-        Submit your artwork to the website!
-      </h1>
+      <h1 className="submit-page-title">Submit your artwork to the website!</h1>
       <ThemeProvider theme={theme}>
         <form onSubmit={(e) => handleSubmit(e)}>
           <FormControl>
@@ -143,9 +172,15 @@ const SubmitPage = () => {
                       className="submit-page-upload-image-thumbnail"
                     />
                   ) : (
-                    <p className="submit-page-upload-image-text">
-                      Select Image or Drag and Drop
-                    </p>
+                    <div className="submit-page-upload-image-text">
+                      <b>Select Image</b> or <b>Drag and Drop</b>
+                      <br />
+                      <p className="submit-page-upload-image-text-limits">
+                        PNG or JPEG only.
+                        <br />
+                        5MB max file size.
+                      </p>
+                    </div>
                   )}
                 </div>
               </label>
@@ -239,9 +274,9 @@ const SubmitPage = () => {
         }}
       />
       <h5 className="submit-page-subtitle">
-        All submissions will be manually reviewed and only added if they
-        clearly fit into an existing category on the website, are safe for work,
-        and are sufficiently high quality, though specifics will vary.
+        All submissions will be manually reviewed and only added if they clearly
+        fit into an existing category on the website, are safe for work, and are
+        sufficiently high quality, though specifics will vary.
         <br />
         <br />
         This is solely intended to maintain a subjective level of quality on SFM

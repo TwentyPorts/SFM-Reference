@@ -28,7 +28,7 @@ function GridItem(props) {
           alt={"thumbnail for category " + props.tag}
           className="grid-item-image"
           title={props.desc}
-          src={props.image}
+          src={'/Assets/Images/' + props.category + '/0.jpg'}
           onClick={props.onClick}
           onLoad={restoreOriginalDimensions}
           height={window.innerWidth <= 600 ? "100px" : "200px"}
@@ -94,6 +94,7 @@ class GridView extends React.Component {
   renderGridItem(category) {
     return (
       <GridItem
+        category={category}
         tag={this.state.gridData[category].tag}
         image={this.state.gridData[category].image}
         desc={this.state.gridData[category].desc}

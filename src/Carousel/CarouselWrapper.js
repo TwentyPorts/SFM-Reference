@@ -32,7 +32,7 @@ const CarouselWrapper = () => {
                 <img
                   className="carousel-item-image"
                   alt={"artwork " + index}
-                  src={require(`../Assets/Images/${category}/${index}.jpg`)}
+                  src={'/Assets/Images/' + category + '/' + index + '.jpg'}
                 ></img>
               </div>
               <div className="carousel-item-author">

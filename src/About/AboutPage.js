@@ -1,7 +1,6 @@
 import "./AboutPage.scss";
 import { gridData } from "../gridData.js";
 import React, { useState } from "react";
-import About_Avatar from "../Assets/Images/About_Avatar.jpg";
 
 const AboutPage = () => {
   const [numImages, setNumImages] = useState(-1);
@@ -63,7 +62,7 @@ const AboutPage = () => {
         JPGs to reduce file size.</p>
       </div>
       <img
-        src={About_Avatar}
+        src={'/Assets/Images/About_Avatar.jpg'}
         className="about-page-avatar"
         alt="anyar avatar"
       ></img>

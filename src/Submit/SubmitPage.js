@@ -7,22 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import LinearProgress from "@mui/material/LinearProgress";
-import Box from "@mui/material/Box";
 import { gridData } from "../gridData.js";
-
-import firebaseApp from "../Firebase.js";
-import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// Initialize Cloud Firestore
-const storage = getStorage(firebaseApp);
-const auth = getAuth();
-signInWithEmailAndPassword(
-  auth,
-  process.env.REACT_APP_EMAIL,
-  process.env.REACT_APP_PASSWORD
-);
 
 const theme = createTheme({
   palette: {
@@ -45,8 +30,8 @@ const SubmitPage = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [uploadPercent, setUploadPercent] = useState(0);
   const [dragEntered, setDragEntered] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (event, property) => {
     setFormData({ ...formData, [property]: event.target.value });
@@ -107,7 +92,7 @@ const SubmitPage = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (uploadedImage == null) {
@@ -115,29 +100,24 @@ const SubmitPage = () => {
       return;
     }
 
-    const storageRef = ref(storage, `/files/${uploadedImage.name}`);
-    const metadata = {
-      customMetadata: {
-        author: formData.author,
-        url: formData.url,
-        category: formData.category,
-      },
-    };
-    const uploadTask = uploadBytesResumable(
-      storageRef,
-      uploadedImage,
-      metadata
-    );
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setUploadPercent(percent);
-      },
-      (err) => console.log(err)
-    );
+    try {
+      const form = new FormData();
+      form.append('image', uploadedImage);
+      form.append('author', formData.author);
+      form.append('url', formData.url);
+      form.append('category', formData.category);
+
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/submit-form`, {
+        method: 'POST',
+        body: form,
+      });
+
+      await response.json();
+
+      setFormSubmitted(true);
+    } catch (error) {
+      console.error('Error:', error.message);
+    }
   };
 
   return (
@@ -192,15 +172,6 @@ const SubmitPage = () => {
                 style={{ display: "none" }}
                 onChange={(e) => handleImageUpload(e)}
               />
-              {uploadPercent > 0 && (
-                <Box sx={{ width: "100%" }}>
-                  <LinearProgress
-                    variant="determinate"
-                    value={uploadPercent}
-                    color={uploadPercent !== 100 ? "primary" : "success"}
-                  />
-                </Box>
-              )}
               <TextField
                 required
                 fullWidth
@@ -237,7 +208,7 @@ const SubmitPage = () => {
                   </MenuItem>
                 ))}
               </TextField>
-              {uploadPercent !== 100 ? (
+              {!formSubmitted ? (
                 <Button variant="contained" type="submit">
                   Submit
                 </Button>
@@ -246,7 +217,7 @@ const SubmitPage = () => {
                   Submit
                 </Button>
               )}
-              {uploadPercent === 100 && (
+              {formSubmitted && (
                 <div className="submit-page-submitted">
                   <p className="submit-page-submitted-text">
                     Submitted! Thank you!

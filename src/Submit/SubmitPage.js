@@ -8,6 +8,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import { gridData } from "../gridData.js";
+import axios from 'axios';
 
 const theme = createTheme({
   palette: {
@@ -107,12 +108,13 @@ const SubmitPage = () => {
       form.append('url', formData.url);
       form.append('category', formData.category);
 
-      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/submit-form`, {
+      /*const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/submit-form`, {
         method: 'POST',
         body: form,
-      });
+      });*/
+      const response = await axios.post('https://2uljetlfcjjoiqnoregzinnkj40ketac.lambda-url.us-east-2.on.aws/', form);
 
-      await response.json();
+      await response;
 
       setFormSubmitted(true);
     } catch (error) {

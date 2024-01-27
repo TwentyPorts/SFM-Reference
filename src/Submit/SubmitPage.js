@@ -50,6 +50,12 @@ const SubmitPage = () => {
     }
   };
 
+  /*
+   * Updates uploadedImage state only if certain conditions are met
+   * Current conditions:
+   ** File type is .png, .jpg, or .jpeg
+   ** File size is less than 5MB
+  */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (!validateFileType(file)) {
@@ -86,7 +92,7 @@ const SubmitPage = () => {
 
   const validateFileSize = (file) => {
     if (file.size < 5242880) {
-      // 1 MB = 1048576 bytes
+      // 1 MB = 1048576 bytes * 5
       return true;
     } else {
       return false;
@@ -112,7 +118,7 @@ const SubmitPage = () => {
         method: 'POST',
         body: form,
       });*/
-      const response = await axios.post('https://2uljetlfcjjoiqnoregzinnkj40ketac.lambda-url.us-east-2.on.aws/', form);
+      const response = await axios.post(process.env.REACT_APP_BACKEND_URL, form);
 
       await response;
 

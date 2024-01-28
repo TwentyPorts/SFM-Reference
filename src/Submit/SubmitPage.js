@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
 import { gridData } from "../gridData.js";
-import axios from 'axios';
+import axios from "axios";
 
 const theme = createTheme({
   palette: {
@@ -51,11 +51,11 @@ const SubmitPage = () => {
   };
 
   /*
-   * Updates uploadedImage state only if certain conditions are met
-   * Current conditions:
-   ** File type is .png, .jpg, or .jpeg
-   ** File size is less than 5MB
-  */
+    * Updates uploadedImage state only if certain conditions are met
+    * Current conditions:
+    ** File type is .png, .jpg, or .jpeg
+    ** File size is less than 5MB
+   */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (!validateFileType(file)) {
@@ -99,6 +99,11 @@ const SubmitPage = () => {
     }
   };
 
+  /*
+    * Encodes the uploaded image to a base64 string and
+    * Stores the encoded image, along with other metadata, in a JSON object then
+    * Sends it to the backend.
+   */
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -108,23 +113,45 @@ const SubmitPage = () => {
     }
 
     try {
-      const form = new FormData();
-      form.append('image', uploadedImage);
-      form.append('author', formData.author);
-      form.append('url', formData.url);
-      form.append('category', formData.category);
+      const reader = new FileReader();
+      var base64Image = null;
 
-      /*const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/submit-form`, {
-        method: 'POST',
-        body: form,
-      });*/
-      const response = await axios.post(process.env.REACT_APP_BACKEND_URL, form);
+      // Create a promise to handle the asynchronous file reading
+      const readImageFile = (file) => {
+        return new Promise((resolve, reject) => {
+          reader.onload = function (e) {
+            base64Image = e.target.result; // Encode image to base64 string
+            resolve(base64Image);
+          };
 
-      await response;
+          reader.onerror = function (error) {
+            reject(error);
+          };
 
-      setFormSubmitted(true);
+          reader.readAsDataURL(file);
+        });
+      };
+
+      readImageFile(uploadedImage)
+        .then((base64Image) => {
+          var form = JSON.stringify({
+            image: base64Image,
+            image_filename: uploadedImage.name,
+            author: formData.author,
+            url: formData.url,
+            category: formData.category,
+          });
+
+          return axios.post(process.env.REACT_APP_BACKEND_URL, form);
+        })
+        .then(() => {
+          setFormSubmitted(true);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     } catch (error) {
-      console.error('Error:', error.message);
+      console.error("Error:", error.message);
     }
   };
 

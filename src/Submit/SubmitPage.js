@@ -7,22 +7,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import LinearProgress from "@mui/material/LinearProgress";
-import Box from "@mui/material/Box";
 import { gridData } from "../gridData.js";
-
-import firebaseApp from "../Firebase.js";
-import { getStorage, ref, uploadBytesResumable } from "firebase/storage";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-
-// Initialize Cloud Firestore
-const storage = getStorage(firebaseApp);
-const auth = getAuth();
-signInWithEmailAndPassword(
-  auth,
-  process.env.REACT_APP_EMAIL,
-  process.env.REACT_APP_PASSWORD
-);
+import axios from "axios";
 
 const theme = createTheme({
   palette: {
@@ -45,8 +31,8 @@ const SubmitPage = () => {
   });
   const [errorMessage, setErrorMessage] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [uploadPercent, setUploadPercent] = useState(0);
   const [dragEntered, setDragEntered] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (event, property) => {
     setFormData({ ...formData, [property]: event.target.value });
@@ -64,6 +50,12 @@ const SubmitPage = () => {
     }
   };
 
+  /*
+    * Updates uploadedImage state only if certain conditions are met
+    * Current conditions:
+    ** File type is .png, .jpg, or .jpeg
+    ** File size is less than 5MB
+   */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (!validateFileType(file)) {
@@ -100,14 +92,19 @@ const SubmitPage = () => {
 
   const validateFileSize = (file) => {
     if (file.size < 5242880) {
-      // 1 MB = 1048576 bytes
+      // 1 MB = 1048576 bytes * 5
       return true;
     } else {
       return false;
     }
   };
 
-  const handleSubmit = (event) => {
+  /*
+    * Encodes the uploaded image to a base64 string and
+    * Stores the encoded image, along with other metadata, in a JSON object then
+    * Sends it to the backend.
+   */
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     if (uploadedImage == null) {
@@ -115,29 +112,47 @@ const SubmitPage = () => {
       return;
     }
 
-    const storageRef = ref(storage, `/files/${uploadedImage.name}`);
-    const metadata = {
-      customMetadata: {
-        author: formData.author,
-        url: formData.url,
-        category: formData.category,
-      },
-    };
-    const uploadTask = uploadBytesResumable(
-      storageRef,
-      uploadedImage,
-      metadata
-    );
-    uploadTask.on(
-      "state_changed",
-      (snapshot) => {
-        const percent = Math.round(
-          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-        );
-        setUploadPercent(percent);
-      },
-      (err) => console.log(err)
-    );
+    try {
+      const reader = new FileReader();
+      var base64Image = null;
+
+      // Create a promise to handle the asynchronous file reading
+      const readImageFile = (file) => {
+        return new Promise((resolve, reject) => {
+          reader.onload = function (e) {
+            base64Image = e.target.result; // Encode image to base64 string
+            resolve(base64Image);
+          };
+
+          reader.onerror = function (error) {
+            reject(error);
+          };
+
+          reader.readAsDataURL(file);
+        });
+      };
+
+      readImageFile(uploadedImage)
+        .then((base64Image) => {
+          var form = JSON.stringify({
+            image: base64Image,
+            image_filename: uploadedImage.name,
+            author: formData.author,
+            url: formData.url,
+            category: formData.category,
+          });
+
+          return axios.post(process.env.REACT_APP_BACKEND_URL, form);
+        })
+        .then(() => {
+          setFormSubmitted(true);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
+    } catch (error) {
+      console.error("Error:", error.message);
+    }
   };
 
   return (
@@ -192,15 +207,6 @@ const SubmitPage = () => {
                 style={{ display: "none" }}
                 onChange={(e) => handleImageUpload(e)}
               />
-              {uploadPercent > 0 && (
-                <Box sx={{ width: "100%" }}>
-                  <LinearProgress
-                    variant="determinate"
-                    value={uploadPercent}
-                    color={uploadPercent !== 100 ? "primary" : "success"}
-                  />
-                </Box>
-              )}
               <TextField
                 required
                 fullWidth
@@ -237,7 +243,7 @@ const SubmitPage = () => {
                   </MenuItem>
                 ))}
               </TextField>
-              {uploadPercent !== 100 ? (
+              {!formSubmitted ? (
                 <Button variant="contained" type="submit">
                   Submit
                 </Button>
@@ -246,7 +252,7 @@ const SubmitPage = () => {
                   Submit
                 </Button>
               )}
-              {uploadPercent === 100 && (
+              {formSubmitted && (
                 <div className="submit-page-submitted">
                   <p className="submit-page-submitted-text">
                     Submitted! Thank you!

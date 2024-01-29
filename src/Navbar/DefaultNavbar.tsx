@@ -37,7 +37,7 @@ function DefaultNavbar() {
               variant={window.innerWidth <= 600 ? "h6" : "h5"}
               noWrap
               component="a"
-              href="/"
+              href="/SFM-Reference"
               sx={{
                 mr: 4,
                 display: 'flex',

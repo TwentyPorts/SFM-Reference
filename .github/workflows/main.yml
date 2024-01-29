@@ -23,6 +23,7 @@ jobs:
         npm install
         npm run-script build
       env:
+        CI: false
         REACT_APP_BACKEND_URL: ${{ secrets.REACT_APP_BACKEND_URL }}
 
     - name: Deploy

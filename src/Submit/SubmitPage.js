@@ -51,10 +51,10 @@ const SubmitPage = () => {
   };
 
   /*
-    * Updates uploadedImage state only if certain conditions are met
-    * Current conditions:
-    ** File type is .png, .jpg, or .jpeg
-    ** File size is less than 5MB
+   * Updates uploadedImage state only if certain conditions are met
+   * Current conditions:
+   ** File type is .png, .jpg, or .jpeg
+   ** File size is less than 5MB
    */
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -100,9 +100,9 @@ const SubmitPage = () => {
   };
 
   /*
-    * Encodes the uploaded image to a base64 string and
-    * Stores the encoded image, along with other metadata, in a JSON object then
-    * Sends it to the backend.
+   * Encodes the uploaded image to a base64 string and
+   * Stores the encoded image, along with other metadata, in a JSON object then
+   * Sends it to the backend.
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -206,6 +206,7 @@ const SubmitPage = () => {
                 multiple={true}
                 style={{ display: "none" }}
                 onChange={(e) => handleImageUpload(e)}
+                disabled={formSubmitted}
               />
               <TextField
                 required
@@ -215,6 +216,7 @@ const SubmitPage = () => {
                 title="Name or username of the artist. List multiple authors separated by commas."
                 value={formData.name}
                 onChange={(e) => handleChange(e, "author")}
+                disabled={formSubmitted}
               />
               <TextField
                 fullWidth
@@ -225,6 +227,7 @@ const SubmitPage = () => {
                 onChange={(e) => handleChange(e, "url")}
                 error={errorMessage !== ""}
                 helperText={errorMessage}
+                disabled={formSubmitted}
               />
               <TextField
                 required
@@ -236,6 +239,7 @@ const SubmitPage = () => {
                 defaultValue=""
                 value={formData.category}
                 onChange={(e) => handleChange(e, "category")}
+                disabled={formSubmitted}
               >
                 {Object.values(gridData).map((value) => (
                   <MenuItem key={value.tag} value={value.tag}>
@@ -243,15 +247,14 @@ const SubmitPage = () => {
                   </MenuItem>
                 ))}
               </TextField>
-              {!formSubmitted ? (
-                <Button variant="contained" type="submit">
-                  Submit
-                </Button>
-              ) : (
-                <Button variant="contained" disabled>
-                  Submit
-                </Button>
-              )}
+
+              <Button
+                variant="contained"
+                type="submit"
+                disabled={formSubmitted}
+              >
+                Submit
+              </Button>
               {formSubmitted && (
                 <div className="submit-page-submitted">
                   <p className="submit-page-submitted-text">

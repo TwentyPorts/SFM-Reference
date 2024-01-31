@@ -1,7 +1,7 @@
 {
   "name": "sfm-reference",
   "version": "0.2.0",
-  "homepage": "https://twentyports.github.io/SFM-Reference/",
+  "homepage": "https://TwentyPorts.github.io/SFM-Reference",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",

@@ -20,7 +20,7 @@ const AboutPage = () => {
       <div className="about-page-container">
         <div className="about-page-header">SFM Reference</div>
         <br />
-        ...is a categorized repository of artwork* made using{" "}
+        ...is an artwork gallery for posters created using {" "}
         <a
           href="https://store.steampowered.com/app/1840/Source_Filmmaker/"
           target="_blank"
@@ -28,20 +28,15 @@ const AboutPage = () => {
         >
           Source Filmmaker
         </a>
-        , meant to serve as a point of reference or inspiration for SFM artists.
-        More informally, it's a personal project to learn about React while
-        creating something interesting.
+        , Valve's 3D animation tool. It's organized around popular categories and types of art made by the community. As a whole, the project aims to serve as a point of reference or inspiration for SFM artists.
         <br />
         <br />
         Currently, this website has <u>{numImages}</u> unique images.
         <br />
-        <br />
-        <em>Tip: On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
+        <p className="about-page-tips"><em>Tip: On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
         and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
         <br/>
-        On mobile, you can swipe left or right.</em>
-        <br />
-        <br />
+        On mobile, you can swipe left or right.</em></p>
         Feedback and contributions are always welcome! Please either email{" "}
         <a href="mailto:oracleofcake@gmail.com">oracleofcake@gmail.com</a>, DM
         anyar on Discord, or make a PR/issue on the{" "}
@@ -52,9 +47,7 @@ const AboutPage = () => {
         >
           GitHub repo
         </a>
-        . If you're adding new images, please make sure that all images are
-        compressed (i.e. no image should be larger than 15 MB), properly
-        attributed and categorized.
+        .
         <p className="about-page-disclaimer">*Note: All images are publicly available, community-created artwork and
         attributed to their original authors wherever possible (which means that
         I do not claim ownership over any of the art being shown).

@@ -1,13 +1,15 @@
+$text-size: 1.2rem;
+
 .about-page {
   @media (max-width: 640px) {
     padding: 5px 0%;
-    font-size: 1rem;
+    font-size: calc($text-size - 0.2rem);
   }
   padding: 10px 7%;
-  font-size: 1.2rem;
+  font-size: $text-size;
   @media (min-width: 1280px) {
     padding: 10px 15%;
-    font-size: 1.3rem;
+    font-size: calc($text-size + 0.1rem);
   }
   font-family: serif;
   text-align: center;
@@ -18,11 +20,11 @@
 
 .about-page-header {
   @media (max-width: 640px) {
-    font-size: 1.6rem;
+    font-size: calc($text-size + 0.4rem);
   }
-  font-size: 2.2rem;
+  font-size: calc($text-size + 1rem);
   @media (min-width: 1280px) {
-    font-size: 2.4rem;
+    font-size: calc($text-size + 1.2rem);
   }
   font-weight: bold;
   font-family: sans-serif;
@@ -47,11 +49,21 @@
 
 .about-page-disclaimer {
   @media (max-width: 640px) {
-    font-size: 0.8rem;
+    font-size: calc($text-size - 0.4rem);
   }
-  font-size: 1rem;
+  font-size: calc($text-size - 0.2rem);
   @media (min-width: 1280px) {
-    font-size: 1.1rem;
+    font-size: calc($text-size - 0.1rem);
   }
   text-align: right;
+}
+
+.about-page-tips {
+  @media (max-width: 640px) {
+    font-size: calc($text-size - 0.3rem);
+  }
+  font-size: calc($text-size - 0.1rem);
+  @media (min-width: 1280px) {
+    font-size: calc($text-size);
+  }
 }

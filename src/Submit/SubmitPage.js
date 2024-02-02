@@ -7,7 +7,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
-import CircularProgress from '@mui/material/CircularProgress';
+import CircularProgress from "@mui/material/CircularProgress";
+import Alert from "@mui/material/Alert";
 import { gridData } from "../gridData.js";
 import axios from "axios";
 
@@ -30,7 +31,13 @@ const SubmitPage = () => {
     url: "",
     category: "",
   });
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState({
+    url: "",
+    imageErrorMessage: "",
+    image: false,
+    filetype: false,
+    filesize: false,
+  });
   const [uploadedImage, setUploadedImage] = useState(null);
   const [dragEntered, setDragEntered] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -43,10 +50,10 @@ const SubmitPage = () => {
     if (event.target.id && event.target.id.includes("url")) {
       try {
         new URL(event.target.value);
-        setErrorMessage("");
+        setErrors({ ...errors, url: "" });
       } catch (e) {
         if (e instanceof TypeError) {
-          setErrorMessage("Invalid URL");
+          setErrors({ ...errors, url: "Invalid URL" });
         }
       }
     }
@@ -61,11 +68,30 @@ const SubmitPage = () => {
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     if (!validateFileType(file)) {
-      alert("Images must be .png, .jpg, or .jpeg.");
+      setErrors({
+        ...errors,
+        imageErrorMessage: "Images must be .png, .jpg, or .jpeg.",
+        image: false,
+        filetype: true,
+        filesize: false,
+      });
     } else if (!validateFileSize(file)) {
-      alert("Images must be less than 5MB.");
+      setErrors({
+        ...errors,
+        imageErrorMessage: "Images must be less than 5MB.",
+        image: false,
+        filetype: false,
+        filesize: true,
+      });
     } else {
       setUploadedImage(file);
+      setErrors({
+        ...errors,
+        imageErrorMessage: "",
+        image: false,
+        filetype: false,
+        filesize: false,
+      });
     }
   };
 
@@ -75,11 +101,30 @@ const SubmitPage = () => {
 
     const file = event.dataTransfer.files[0];
     if (!validateFileType(file)) {
-      alert("Images must be .png, .jpg, or .jpeg.");
+      setErrors({
+        ...errors,
+        imageErrorMessage: "Images must be .png, .jpg, or .jpeg.",
+        image: false,
+        filetype: true,
+        filesize: false,
+      });
     } else if (!validateFileSize(file)) {
-      alert("Images must be less than 5MB.");
+      setErrors({
+        ...errors,
+        imageErrorMessage: "Images must be less than 5MB.",
+        image: false,
+        filetype: false,
+        filesize: true,
+      });
     } else {
       setUploadedImage(file);
+      setErrors({
+        ...errors,
+        imageErrorMessage: "",
+        image: false,
+        filetype: false,
+        filesize: false,
+      });
     }
   };
 
@@ -110,7 +155,13 @@ const SubmitPage = () => {
     event.preventDefault();
 
     if (uploadedImage == null) {
-      alert("Don't forget to upload an image!");
+      setErrors({
+        ...errors,
+        imageErrorMessage: "Don't forget to upload an image!",
+        image: true,
+        filetype: false,
+        filesize: false,
+      });
       return;
     }
 
@@ -179,6 +230,7 @@ const SubmitPage = () => {
                   className="submit-page-upload-image-container"
                   style={{
                     backgroundColor: dragEntered ? "#333" : "transparent",
+                    borderColor: errors.image ? "red" : "white",
                   }}
                   onDrop={(e) => handleFileDrop(e)}
                   onDragOver={(e) => e.preventDefault()}
@@ -195,11 +247,21 @@ const SubmitPage = () => {
                     <div className="submit-page-upload-image-text">
                       <b>Select Image</b> or <b>Drag and Drop</b>
                       <br />
-                      <p className="submit-page-upload-image-text-limits">
-                        PNG or JPEG only.
+                      <div className="submit-page-upload-image-text-limits">
+                        <span
+                          className="submit-page-upload-image-text-limits-filetype"
+                          style={{ color: errors.filetype ? "red" : "white" }}
+                        >
+                          PNG or JPEG only.
+                        </span>
                         <br />
-                        5MB max file size.
-                      </p>
+                        <span
+                          className="submit-page-upload-image-text-limits-filesize"
+                          style={{ color: errors.filesize ? "red" : "white" }}
+                        >
+                          5MB max file size.
+                        </span>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -213,6 +275,21 @@ const SubmitPage = () => {
                 onChange={(e) => handleImageUpload(e)}
                 disabled={formSubmitted}
               />
+              {errors.imageErrorMessage !== "" && (
+                <Alert
+                  severity="error"
+                  variant="filled"
+                  sx={{ color: "white", width: "fit-content" }}
+                  onClose={() => {
+                    setErrors({
+                      ...errors,
+                      imageErrorMessage: "",
+                    });
+                  }}
+                >
+                  {errors.imageErrorMessage}
+                </Alert>
+              )}
               <TextField
                 required
                 fullWidth
@@ -230,8 +307,8 @@ const SubmitPage = () => {
                 title="Direct link to the artwork (e.g. Twitter, Steam, Reddit). Include the https:// prefix."
                 value={formData.url}
                 onChange={(e) => handleChange(e, "url")}
-                error={errorMessage !== ""}
-                helperText={errorMessage}
+                error={errors.url !== ""}
+                helperText={errors.url}
                 disabled={formSubmitted}
               />
               <TextField
@@ -260,7 +337,7 @@ const SubmitPage = () => {
               >
                 Submit
               </Button>
-              {showSpinner && (<CircularProgress />)}
+              {showSpinner && <CircularProgress />}
               {formSubmitted && (
                 <div className="submit-page-submitted">
                   <p className="submit-page-submitted-text">

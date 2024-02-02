@@ -7,6 +7,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Divider from "@mui/material/Divider";
+import CircularProgress from '@mui/material/CircularProgress';
 import { gridData } from "../gridData.js";
 import axios from "axios";
 
@@ -33,6 +34,7 @@ const SubmitPage = () => {
   const [uploadedImage, setUploadedImage] = useState(null);
   const [dragEntered, setDragEntered] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   const handleChange = (event, property) => {
     setFormData({ ...formData, [property]: event.target.value });
@@ -142,10 +144,13 @@ const SubmitPage = () => {
             category: formData.category,
           });
 
+          setShowSpinner(true);
+
           return axios.post(process.env.REACT_APP_BACKEND_URL, form);
         })
         .then(() => {
           setFormSubmitted(true);
+          setShowSpinner(false);
         })
         .catch((error) => {
           console.error("Error:", error);
@@ -255,6 +260,7 @@ const SubmitPage = () => {
               >
                 Submit
               </Button>
+              {showSpinner && (<CircularProgress />)}
               {formSubmitted && (
                 <div className="submit-page-submitted">
                   <p className="submit-page-submitted-text">

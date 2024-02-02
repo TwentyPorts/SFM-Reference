@@ -37,9 +37,8 @@ const AboutPage = () => {
         and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
         <br/>
         On mobile, you can swipe left or right.</em></p>
-        Feedback and contributions are always welcome! Please either email{" "}
-        <a href="mailto:oracleofcake@gmail.com">oracleofcake@gmail.com</a>, DM
-        anyar on Discord, or make a PR/issue on the{" "}
+        Feedback and contributions are always welcome! Please either <a href="mailto:2rayxu@gmail.com">email</a>
+        me, DM anyar on Discord, or make a PR/issue on the{" "}
         <a
           href="https://github.com/TwentyPorts/SFM-Reference"
           target="_blank"

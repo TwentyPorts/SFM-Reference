@@ -14,4 +14,4 @@ To save space, the website only hosts JPEG images compressed to around 90% quali
 
 ### Contact
 
-To reach out to me, either email <a href="mailto:oracleofcake@gmail.com">oracleofcake@gmail.com</a> or send a message to anyar on Discord. I'd love to hear any thoughts, feedback, etc. If you want your artwork taken down for whatever reason, this is also how you would do so.
+To reach out to me, either email <a href="mailto:2rayxu@gmail.com">2rayxu@gmail.com</a> or send a message to anyar on Discord. I'd love to hear any thoughts, feedback, etc. If you want your artwork taken down for whatever reason, this is also how you would do so.

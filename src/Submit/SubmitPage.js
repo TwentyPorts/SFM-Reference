@@ -34,10 +34,17 @@ const SubmitPage = () => {
   const [errors, setErrors] = useState({
     url: "",
     imageErrorMessage: "",
-    image: false,
+    imageMissing: false,
     filetype: false,
     filesize: false,
   });
+  const errorMessages = {
+    url: "Invalid URL",
+    imageMissing: "Don't forget to upload an image!",
+    filetype: "Images must be .png, .jpg, or .jpeg.",
+    filesize: "Images must be less than 10MB.",
+  };
+
   const [uploadedImage, setUploadedImage] = useState(null);
   const [dragEntered, setDragEntered] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -53,7 +60,7 @@ const SubmitPage = () => {
         setErrors({ ...errors, url: "" });
       } catch (e) {
         if (e instanceof TypeError) {
-          setErrors({ ...errors, url: "Invalid URL" });
+          setErrors({ ...errors, url: errorMessages.url });
         }
       }
     }
@@ -70,16 +77,16 @@ const SubmitPage = () => {
     if (!validateFileType(file)) {
       setErrors({
         ...errors,
-        imageErrorMessage: "Images must be .png, .jpg, or .jpeg.",
-        image: false,
+        imageErrorMessage: errorMessages.filetype,
+        imageMissing: false,
         filetype: true,
         filesize: false,
       });
     } else if (!validateFileSize(file)) {
       setErrors({
         ...errors,
-        imageErrorMessage: "Images must be less than 5MB.",
-        image: false,
+        imageErrorMessage: errorMessages.filesize,
+        imageMissing: false,
         filetype: false,
         filesize: true,
       });
@@ -88,7 +95,7 @@ const SubmitPage = () => {
       setErrors({
         ...errors,
         imageErrorMessage: "",
-        image: false,
+        imageMissing: false,
         filetype: false,
         filesize: false,
       });
@@ -103,16 +110,16 @@ const SubmitPage = () => {
     if (!validateFileType(file)) {
       setErrors({
         ...errors,
-        imageErrorMessage: "Images must be .png, .jpg, or .jpeg.",
-        image: false,
+        imageErrorMessage: errorMessages.filetype,
+        imageMissing: false,
         filetype: true,
         filesize: false,
       });
     } else if (!validateFileSize(file)) {
       setErrors({
         ...errors,
-        imageErrorMessage: "Images must be less than 5MB.",
-        image: false,
+        imageErrorMessage: errorMessages.filesize,
+        imageMissing: false,
         filetype: false,
         filesize: true,
       });
@@ -121,7 +128,7 @@ const SubmitPage = () => {
       setErrors({
         ...errors,
         imageErrorMessage: "",
-        image: false,
+        imageMissing: false,
         filetype: false,
         filesize: false,
       });
@@ -138,8 +145,8 @@ const SubmitPage = () => {
   };
 
   const validateFileSize = (file) => {
-    if (file.size < 5242880) {
-      // 1 MB = 1048576 bytes * 5
+    if (file.size < 10485760) {
+      // 1 MB = 1048576 bytes
       return true;
     } else {
       return false;
@@ -157,8 +164,8 @@ const SubmitPage = () => {
     if (uploadedImage == null) {
       setErrors({
         ...errors,
-        imageErrorMessage: "Don't forget to upload an image!",
-        image: true,
+        imageErrorMessage: errorMessages.imageMissing,
+        imageMissing: true,
         filetype: false,
         filesize: false,
       });
@@ -230,7 +237,7 @@ const SubmitPage = () => {
                   className="submit-page-upload-image-container"
                   style={{
                     backgroundColor: dragEntered ? "#333" : "transparent",
-                    borderColor: errors.image ? "red" : "white",
+                    borderColor: errors.imageMissing ? "red" : "white",
                   }}
                   onDrop={(e) => handleFileDrop(e)}
                   onDragOver={(e) => e.preventDefault()}
@@ -259,7 +266,7 @@ const SubmitPage = () => {
                           className="submit-page-upload-image-text-limits-filesize"
                           style={{ color: errors.filesize ? "red" : "white" }}
                         >
-                          5MB max file size.
+                          10MB max file size.
                         </span>
                       </div>
                     </div>

@@ -72,41 +72,12 @@ const SubmitPage = () => {
    ** File type is .png, .jpg, or .jpeg
    ** File size is less than 5MB
    */
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    if (!validateFileType(file)) {
-      setErrors({
-        ...errors,
-        imageErrorMessage: errorMessages.filetype,
-        imageMissing: false,
-        filetype: true,
-        filesize: false,
-      });
-    } else if (!validateFileSize(file)) {
-      setErrors({
-        ...errors,
-        imageErrorMessage: errorMessages.filesize,
-        imageMissing: false,
-        filetype: false,
-        filesize: true,
-      });
-    } else {
-      setUploadedImage(file);
-      setErrors({
-        ...errors,
-        imageErrorMessage: "",
-        imageMissing: false,
-        filetype: false,
-        filesize: false,
-      });
+  const handleImageUpload = (event, dragAndDrop = false) => {
+    const file = dragAndDrop ? event.dataTransfer.files[0] : event.target.files[0];
+    if (dragAndDrop) {
+      event.preventDefault();
+      setDragEntered(false);
     }
-  };
-
-  const handleFileDrop = (event) => {
-    event.preventDefault();
-    setDragEntered(false);
-
-    const file = event.dataTransfer.files[0];
     if (!validateFileType(file)) {
       setErrors({
         ...errors,
@@ -239,7 +210,7 @@ const SubmitPage = () => {
                     backgroundColor: dragEntered ? "#333" : "transparent",
                     borderColor: errors.imageMissing ? "red" : "white",
                   }}
-                  onDrop={(e) => handleFileDrop(e)}
+                  onDrop={(e) => handleImageUpload(e, true)}
                   onDragOver={(e) => e.preventDefault()}
                   onDragEnter={() => setDragEntered(true)}
                   onDragLeave={() => setDragEntered(false)}

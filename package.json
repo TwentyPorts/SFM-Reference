@@ -11,6 +11,10 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^20.11.16",
+    "@types/react": "^18.2.54",
+    "@types/react-dom": "^18.2.18",
     "axios": "^1.6.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -18,7 +22,7 @@
     "react-scripts": "5.0.1",
     "react-swipeable": "^7.0.0",
     "sass": "^1.59.2",
-    "typescript": "^4.9.4",
+    "typescript": "^4.9.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

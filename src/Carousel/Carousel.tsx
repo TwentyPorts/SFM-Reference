@@ -15,18 +15,23 @@ export const CarouselItem = ({ children, width }) => {
   );
 };
 
-const Carousel = ({ children, tags }) => {
+type Props = {
+  children: React.ReactNode;
+  tags: React.MutableRefObject<Set<string>>;
+};
+
+const Carousel = ({ children, tags }: Props) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const pageParam = searchParams.has("page")
-    ? parseInt(searchParams.get("page")) - 1
+    ? parseInt(searchParams.get("page")!) - 1
     : 0; // default to 0 if no search parameter present
   const [activeIndex, setActiveIndex] = useState(pageParam);
-  const [filters, setFilters] = useState([]);
-  const [carouselItems, setCarouselItems] = useState();
+  const [filters, setFilters] = useState([] as string[]);
+  const [carouselItems, setCarouselItems] = useState([] as React.ReactElement[]);
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
-  let carouselItemsLength = carouselItems ? carouselItems.length : 0;
+  let carouselItemsLength = carouselItems.length;
   useEffect(() => {
     // console.log("effect used");
     applyFilters();
@@ -79,21 +84,21 @@ const Carousel = ({ children, tags }) => {
   }
 
   // Add or remove a filter to the "filters" state, then update the CSS class for the corresponding button
-  function updateFilters(tagName) {
+  function updateFilters(tagName: string) {
     let filtersArray = filters;
     let inactiveClassName = "tag-button-" + tagName.replace(/\s+/g, "");
     let buttonElem = document.getElementsByClassName(inactiveClassName);
     if (buttonElem.length !== 1) {
       console.log("Didn't find exactly 1 button; something went wrong?");
     }
-    buttonElem = buttonElem[0];
+    let firstButtonElem = buttonElem[0];
 
     if (filtersArray.includes(tagName)) {
       filtersArray.splice(filtersArray.indexOf(tagName), 1);
-      buttonElem.classList.remove("tag-button-active");
+      firstButtonElem.classList.remove("tag-button-active");
     } else {
       filtersArray.push(tagName);
-      buttonElem.classList.add("tag-button-active");
+      firstButtonElem.classList.add("tag-button-active");
     }
     setFilters(filtersArray);
 
@@ -102,8 +107,8 @@ const Carousel = ({ children, tags }) => {
 
   // Update the "carouselItems" state with any new filters applied; this triggers a re-render
   function applyFilters() {
-    let images = [];
-    React.Children.map(children, (child, index) => {
+    let images = [] as React.ReactElement[];
+    React.Children.map(children, (child: React.ReactElement, index) => {
       let childTags = "";
       if (child.props.children[2].props.children) {
         childTags = child.props.children[2].props.children

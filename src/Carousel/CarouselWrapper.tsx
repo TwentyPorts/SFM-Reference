@@ -6,7 +6,7 @@ import "./Carousel.scss";
 
 const CarouselWrapper = () => {
   const [data, setData] = useState(Object);
-  const [listItems, setListItems] = useState(Object);
+  const [listItems, setListItems] = useState();
   const { category } = useParams();
   document.title = category + " - SFM Reference";
   let dataFetched = false;
@@ -15,7 +15,7 @@ const CarouselWrapper = () => {
   async function getData() {
     setData(await import("./Data/" + category));
 
-    if (data) {
+    if (Object.hasOwn(data, "carouselData")) {
       dataFetched = true; // carousel data only needs to be fetched once
       let carouselData = data.carouselData;
       uniqueTags.current = new Set<string>();

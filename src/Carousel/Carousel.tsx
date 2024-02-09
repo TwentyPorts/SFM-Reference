@@ -7,7 +7,7 @@ import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
 import "./Carousel.scss";
 
-export const CarouselItem = ({ children, width }) => {
+export const CarouselItem = ({ children, width = '100%' }) => {
   return (
     <div className="carousel-item" style={{ width: width }}>
       {children}
@@ -17,7 +17,7 @@ export const CarouselItem = ({ children, width }) => {
 
 type Props = {
   children: React.ReactNode;
-  tags: React.MutableRefObject<Set<string>>;
+  tags: Set<string> | null;
 };
 
 const Carousel = ({ children, tags }: Props) => {
@@ -134,15 +134,15 @@ const Carousel = ({ children, tags }: Props) => {
 
   return (
     <div {...handlers} className="carousel">
-      {tags.current && tags.current.size > 0 ? (
+      {tags && tags.size > 0 ? (
         <div className="filters">
           <div
             className="tags-container"
             style={{ display: filtersContainerVisible ? "flex" : "none" }}
           >
             <span className="filters-title">- Filter by Tags -</span>
-            {tags.current
-              ? new Array(...tags.current).map((tagName, index) => {
+            {tags
+              ? new Array(...tags).map((tagName, index) => {
                   let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
                   return (
                     <div

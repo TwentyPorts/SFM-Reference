@@ -5,12 +5,12 @@ import Carousel, { CarouselItem } from "./Carousel";
 import "./Carousel.scss";
 
 const CarouselWrapper = () => {
-  const [data, setData] = useState();
-  const [listItems, setListItems] = useState();
+  const [data, setData] = useState(Object);
+  const [listItems, setListItems] = useState(Object);
   const { category } = useParams();
   document.title = category + " - SFM Reference";
   let dataFetched = false;
-  let uniqueTags = useRef(null);
+  let uniqueTags = useRef<Set<string> | null>(null);
 
   async function getData() {
     setData(await import("./Data/" + category));
@@ -18,10 +18,10 @@ const CarouselWrapper = () => {
     if (data) {
       dataFetched = true; // carousel data only needs to be fetched once
       let carouselData = data.carouselData;
-      uniqueTags.current = new Set();
+      uniqueTags.current = new Set<string>();
       carouselData.forEach((obj) => {
         if (Object.hasOwn(obj, "type")) {
-          obj.type.forEach((type) => uniqueTags.current.add(type));
+          obj.type.forEach((type) => uniqueTags.current!.add(type));
         }
       });
       setListItems(
@@ -53,7 +53,7 @@ const CarouselWrapper = () => {
     // console.log("CarouselWrapper effect used");
     if (!dataFetched) getData();
   }, [data]); // don't add the so-called "missing dependencies" according to the compiler - the app will refresh infinitely and freeze
-  return <Carousel tags={uniqueTags}>{listItems}</Carousel>;
+  return <Carousel tags={uniqueTags.current}>{listItems}</Carousel>;
 };
 
 export default CarouselWrapper;

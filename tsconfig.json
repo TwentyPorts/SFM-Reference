@@ -2,6 +2,7 @@
     "compilerOptions": {
         "outDir": "./build",         // path to output directory
         "target": "es6",
+        "lib": ["esnext", "dom"],
         "module": "commonjs",
         "forceConsistentCasingInFileNames": true,
         "sourceMap": true,          // allow sourcemap support

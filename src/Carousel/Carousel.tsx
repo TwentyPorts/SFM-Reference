@@ -67,7 +67,7 @@ const Carousel = ({ children, tags }: Props) => {
   });
 
   // Handle keypress updates
-  function keyPress(e) {
+  function keyPress(e: KeyboardEvent) {
     if (e.key === "Enter") {
       e.preventDefault();
       updateIndex(null, activeIndex + 2);

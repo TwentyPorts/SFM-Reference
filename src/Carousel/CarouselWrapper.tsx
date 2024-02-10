@@ -4,6 +4,12 @@ import Carousel, { CarouselItem } from "./Carousel";
 
 import "./Carousel.scss";
 
+interface carouselObject {
+  author: string,
+  link: string,
+  type: string[]
+}
+
 const CarouselWrapper = () => {
   const [data, setData] = useState(Object);
   const [listItems, setListItems] = useState();
@@ -19,13 +25,13 @@ const CarouselWrapper = () => {
       dataFetched = true; // carousel data only needs to be fetched once
       let carouselData = data.carouselData;
       uniqueTags.current = new Set<string>();
-      carouselData.forEach((obj) => {
+      carouselData.forEach((obj: carouselObject) => {
         if (Object.hasOwn(obj, "type")) {
-          obj.type.forEach((type) => uniqueTags.current!.add(type));
+          obj.type.forEach((type: string) => uniqueTags.current!.add(type));
         }
       });
       setListItems(
-        carouselData.map((element, index) => {
+        carouselData.map((element: carouselObject, index: number) => {
           return (
             <CarouselItem key={index}>
               <div className="carousel-item-image-wrapper">

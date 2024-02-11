@@ -42,7 +42,13 @@ function GridItem(props) {
   );
 }
 
-class GridView extends React.Component {
+type gridState = {
+  gridData: Object,
+  navigateTo: string | null,
+  categoryInfoMessage: React.ReactNode | null,
+};
+
+class GridView extends React.Component<{}, gridState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -53,12 +59,12 @@ class GridView extends React.Component {
   }
 
   // Navigate to carousel view for whichever category was clicked
-  handleClick(i) {
+  handleClick(i: string) {
     this.setState({ navigateTo: i });
   }
 
   // Show description message box for a category
-  showCategoryInfo(e, tag, desc) {
+  showCategoryInfo(e: React.MouseEvent<HTMLElement>, tag: string, desc: string) {
     e.stopPropagation();
     this.setState((prevState) => {
       return {
@@ -91,14 +97,14 @@ class GridView extends React.Component {
   }
 
   // Render a single GridItem
-  renderGridItem(category) {
+  renderGridItem(category: string) {
     return (
       <GridItem
         tag={this.state.gridData[category].tag}
         image={this.state.gridData[category].image}
         desc={this.state.gridData[category].desc}
         onClick={() => this.handleClick(category)}
-        onTagClick={(e) =>
+        onTagClick={(e: React.MouseEvent<HTMLElement>) =>
           this.showCategoryInfo(
             e,
             this.state.gridData[category].tag,
@@ -112,7 +118,7 @@ class GridView extends React.Component {
   render() {
     let { navigateTo } = this.state;
 
-    let gridItemsArray = []; // grid items to be rendered
+    let gridItemsArray: React.ReactNode[] = []; // grid items to be rendered
     for (const [key] of Object.entries(gridData)) {
       gridItemsArray.push(this.renderGridItem(key));
     }

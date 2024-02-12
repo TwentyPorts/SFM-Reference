@@ -45,7 +45,7 @@ const SubmitPage = () => {
     filesize: "Images must be less than 10MB.",
   };
 
-  const [uploadedImage, setUploadedImage] = useState(null);
+  const [uploadedImage, setUploadedImage] = useState<File | null>(null);
   const [dragEntered, setDragEntered] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
@@ -145,13 +145,13 @@ const SubmitPage = () => {
 
     try {
       const reader = new FileReader();
-      var base64Image = null;
+      var base64Image = "";
 
       // Create a promise to handle the asynchronous file reading
       const readImageFile = (file) => {
         return new Promise((resolve, reject) => {
           reader.onload = function (e) {
-            base64Image = e.target.result; // Encode image to base64 string
+            base64Image = e.target?.result as string ?? ""; // Encode image to base64 string
             resolve(base64Image);
           };
 
@@ -175,7 +175,7 @@ const SubmitPage = () => {
 
           setShowSpinner(true);
 
-          return axios.post(process.env.REACT_APP_BACKEND_URL, form);
+          return axios.post(process.env.REACT_APP_BACKEND_URL!, form);
         })
         .then(() => {
           setFormSubmitted(true);
@@ -274,7 +274,7 @@ const SubmitPage = () => {
                 id="submit-page-input-author"
                 label="Author"
                 title="Name or username of the artist. List multiple authors separated by commas."
-                value={formData.name}
+                value={formData.author}
                 onChange={(e) => handleChange(e, "author")}
                 disabled={formSubmitted}
               />

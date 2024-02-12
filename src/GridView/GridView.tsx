@@ -64,7 +64,7 @@ class GridView extends React.Component<{}, gridState> {
   }
 
   // Show description message box for a category
-  showCategoryInfo(e: React.MouseEvent<HTMLElement>, tag: string, desc: string) {
+  showCategoryInfo(e, tag: string, desc: string) {
     e.stopPropagation();
     this.setState((prevState) => {
       return {
@@ -104,7 +104,7 @@ class GridView extends React.Component<{}, gridState> {
         image={this.state.gridData[category].image}
         desc={this.state.gridData[category].desc}
         onClick={() => this.handleClick(category)}
-        onTagClick={(e: React.MouseEvent<HTMLElement>) =>
+        onTagClick={(e) =>
           this.showCategoryInfo(
             e,
             this.state.gridData[category].tag,

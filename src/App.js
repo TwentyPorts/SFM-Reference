@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import GridView from "./GridView/GridView";
 import CarouselWrapper from "./Carousel/CarouselWrapper";
-import AboutPage from "./About/AboutPage";
+import AboutPage from "./About/AboutPage.tsx";
 import SubmitPage from "./Submit/SubmitPage";
 import DefaultNavbar from "./Navbar/DefaultNavbar.tsx";
 

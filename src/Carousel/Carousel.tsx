@@ -4,6 +4,10 @@ import Pagination from "@mui/material/Pagination";
 import { useSearchParams } from "react-router-dom";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import DialogTitle from '@mui/material/DialogTitle';
+import Dialog from '@mui/material/Dialog';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
 
 import "./Carousel.scss";
 
@@ -31,6 +35,7 @@ const Carousel = ({ children, tags }: Props) => {
   const childrenCount = React.Children.count(children);
   const [filtersContainerVisible, toggleFiltersContainerVisible] =
     useState(false);
+  const [dialogOpen, setDialogOpen] = React.useState(localStorage.getItem("keynav-tips-shown") !== "true");
   let carouselItemsLength = carouselItems.length;
   useEffect(() => {
     // console.log("effect used");
@@ -132,8 +137,36 @@ const Carousel = ({ children, tags }: Props) => {
     toggleFiltersContainerVisible(!filtersContainerVisible);
   }
 
+  function handleClose() {
+    setDialogOpen(false);
+    localStorage.setItem("keynav-tips-shown", "true"); // only show tips once
+  }
+
   return (
     <div {...handlers} className="carousel">
+      <Dialog onClose={handleClose} open={dialogOpen} className="carousel-tips-dialog" PaperProps={{
+        style: {
+          border: '2px solid #fff',
+          backgroundColor: 'black',
+          color: 'white',
+        },
+      }}>
+        <DialogTitle id="carousel-tips-dialog-title">Navigation Tip</DialogTitle>
+        <DialogContent>
+          <DialogContentText id="carousel-tips-dialog-text" sx={{
+          bgcolor: 'background.paper',
+          boxShadow: 1,
+          borderRadius: 2,
+          p: 2,
+          minWidth: 300,
+        }}>
+            On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
+            and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
+            <br/>
+            On mobile, you can swipe left or right.
+          </DialogContentText>
+        </DialogContent>
+      </Dialog>
       {tags && tags.size > 0 ? (
         <div className="filters">
           <div

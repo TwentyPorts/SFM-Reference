@@ -24,7 +24,7 @@ function DefaultNavbar() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <AppBar position="static" color="primary">
+      <AppBar position="static" color="primary" sx={{ overflow: 'scroll' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             <img

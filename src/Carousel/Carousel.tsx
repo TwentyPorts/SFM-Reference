@@ -144,26 +144,34 @@ const Carousel = ({ children, tags }: Props) => {
 
   return (
     <div {...handlers} className="carousel">
-      <Dialog onClose={handleClose} open={dialogOpen} className="carousel-tips-dialog" PaperProps={{
+      <Dialog onClose={handleClose} open={dialogOpen} PaperProps={{
         style: {
-          border: '2px solid #fff',
-          backgroundColor: 'black',
-          color: 'white',
+          border: '2px solid #aaa',
+          backgroundColor: '#121212',
+          borderRadius: 5,
+          textAlign: 'center',
         },
       }}>
-        <DialogTitle id="carousel-tips-dialog-title">Navigation Tip</DialogTitle>
+        <DialogTitle sx={{
+          color: "#eee",
+          p: "16px 16px 0 16px",
+        }}>Navigation Tip</DialogTitle>
         <DialogContent>
-          <DialogContentText id="carousel-tips-dialog-text" sx={{
-          bgcolor: 'background.paper',
-          boxShadow: 1,
-          borderRadius: 2,
-          p: 2,
-          minWidth: 300,
-        }}>
+          <DialogContentText sx={{
+            color: "#eee",
+            p: "0 16px 8px 16px",
+          }}>
+            <hr />
             On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
             and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
-            <br/>
+            <br />
             On mobile, you can swipe left or right.
+          </DialogContentText>
+          <DialogContentText sx={{
+            color: "#888",
+            p: "0 16px 0 16px",
+          }}>
+            (click outside to close)
           </DialogContentText>
         </DialogContent>
       </Dialog>
@@ -176,20 +184,20 @@ const Carousel = ({ children, tags }: Props) => {
             <span className="filters-title">- Filter by Tags -</span>
             {tags
               ? new Array(...tags).map((tagName, index) => {
-                  let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
-                  return (
-                    <div
-                      className={
-                        "tag-button tag-button-" + tagNameWithoutSpaces
-                      }
-                      role="button"
-                      onClick={() => updateFilters(tagName)}
-                      key={index}
-                    >
-                      {tagName}
-                    </div>
-                  );
-                })
+                let tagNameWithoutSpaces = tagName.replace(/\s+/g, "");
+                return (
+                  <div
+                    className={
+                      "tag-button tag-button-" + tagNameWithoutSpaces
+                    }
+                    role="button"
+                    onClick={() => updateFilters(tagName)}
+                    key={index}
+                  >
+                    {tagName}
+                  </div>
+                );
+              })
               : null}
           </div>
 

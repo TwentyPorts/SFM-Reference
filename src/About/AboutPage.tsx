@@ -33,10 +33,7 @@ const AboutPage = () => {
         <br />
         Currently, this website has <u>{numImages}</u> unique images.
         <br />
-        <p className="about-page-tips"><em>Tip: On desktop, you can navigate the image slideshows with <b>Left Arrow</b> for previous,
-        and <b>Right Arrow</b> or <b>Enter</b> for next. Press <b>F</b> to toggle the filters menu.
-        <br/>
-        On mobile, you can swipe left or right.</em></p>
+        <br />
         Feedback and contributions are always welcome! Please either <a href="mailto:2rayxu@gmail.com">email</a>
         {" "}me, DM anyar on Discord, or make a PR/issue on the{" "}
         <a

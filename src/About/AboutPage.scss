@@ -57,13 +57,3 @@ $text-size: 1.2rem;
   }
   text-align: right;
 }
-
-.about-page-tips {
-  @media (max-width: 640px) {
-    font-size: calc($text-size - 0.3rem);
-  }
-  font-size: calc($text-size - 0.1rem);
-  @media (min-width: 1280px) {
-    font-size: calc($text-size);
-  }
-}

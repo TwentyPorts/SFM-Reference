@@ -23,6 +23,12 @@ $image-container-size: 15em;
     margin: auto;
     border: 1px dashed white;
     cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.submit-page-upload-image-container:hover {
+    border-radius: 20px;
+    transition: all 0.3s ease 0s;
 }
 
 .submit-page-upload-image-text {
